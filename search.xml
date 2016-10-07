@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+    
+    <entry>
+      <title><![CDATA[Tkinter实践]]></title>
+      <url>http://yoursite.com/2015/10/07/Tkinter%E5%AE%9E%E8%B7%B5/</url>
+      <content type="html"><![CDATA[<h2 id="环境说明"><a href="#环境说明" class="headerlink" title="环境说明"></a>环境说明</h2><ul>
+<li>电脑系统：windows10 64bit</li>
+<li>python版本： 3.5.2 64bit</li>
+<li>IDE： PyCharm Community Edition 2016.2.2</li>
+</ul>
+<h2 id="功能实现"><a href="#功能实现" class="headerlink" title="功能实现"></a>功能实现</h2><ul>
+<li>单词自考自查工具</li>
+<li>读取xlsx格式的词典，可进行中译英，英译中的顺序或随机自查，对结果可保存为txt格式的文本</li>
+<li>自动记录中-&gt;英错误次数，以日志形式保存</li>
+<li>具体见程序的版本信息部分</li>
+</ul>
+<h2 id="依赖库"><a href="#依赖库" class="headerlink" title="依赖库"></a>依赖库</h2><ul>
+<li>tkinter</li>
+<li>os</li>
+<li>xlrd</li>
+<li>xlwt</li>
+<li>xlutils</li>
+<li>random</li>
+<li>pyinstaller</li>
+</ul>
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p><a href="https://github.com/chenxiaoyu2016/tkinter_dict/blob/master/tkinter_dict.py" target="_blank" rel="external">完整python源码</a></p>
+<h2 id="可执行文件（-exe）"><a href="#可执行文件（-exe）" class="headerlink" title="可执行文件（.exe）"></a>可执行文件（.exe）</h2><p><a href="https://github.com/chenxiaoyu2016/tkinter_dict/tree/master/build_version4" target="_blank" rel="external">windows下可执行文件</a></p>
+<h2 id="部分细节说明"><a href="#部分细节说明" class="headerlink" title="部分细节说明"></a>部分细节说明</h2><h3 id="自定义窗体返回按钮功能"><a href="#自定义窗体返回按钮功能" class="headerlink" title="自定义窗体返回按钮功能"></a>自定义窗体返回按钮功能</h3><pre><code>root=Tk()
+root.geometry(&quot;800x500&quot;)
+root.protocol(&quot;WM_DELETE_WINDOW&quot;, callback)
+</code></pre><p> callback函数功能可自定义，调用root的destroy方法可关闭窗体。</p>
+<h3 id="使光标默认聚焦在某一控件"><a href="#使光标默认聚焦在某一控件" class="headerlink" title="使光标默认聚焦在某一控件"></a>使光标默认聚焦在某一控件</h3><pre><code># create Entry module
+e = StringVar()
+entry = Entry(root, validate=&apos;key&apos;, textvariable=e, width=20,font=(&quot;宋体&quot;, 18, &quot;bold&quot;))
+entry.pack()
+entry.bind(&apos;&lt;Return&gt;&apos;, rtnkey)
+entry.focus_force()
+</code></pre><p>很多控件都有focus_force方法，该方法即会将光标默认设在对应控件上。</p>
+<h3 id="使滚动条自动滚动到最底部"><a href="#使滚动条自动滚动到最底部" class="headerlink" title="使滚动条自动滚动到最底部"></a>使滚动条自动滚动到最底部</h3><pre><code># create text module
+textPad=Text(root,undo=True)
+textPad.pack(expand=YES,fill=BOTH)
+
+#create scroll bar
+scroll=Scrollbar(textPad)
+textPad.config(yscrollcommand=scroll.set)
+scroll.config(command=textPad.yview)
+scroll.config(cursor=&apos;hand2&apos;)
+scroll.pack(side=RIGHT,fill=Y)
+
+textPad.insert(CURRENT,&apos;\n&apos;)
+textPad.see(END)
+</code></pre><p>关键在最后两行，text组件的插入使用insert方法，示例中在当前位置CURRENT插入了一个换行符，see方法（参数为END）可使text组件处在可见内容的最尾部，即可使滚动条默认处在最底部。<br>如果滚动条没有处在最底部就调用text组件的insert方法，会在界面显示可见的最后一行插入，而不是text组件整体的CURRENT位置插入。</p>
+<h3 id="xls-xlsx文件的读-写-改写"><a href="#xls-xlsx文件的读-写-改写" class="headerlink" title="xls/xlsx文件的读/写/改写"></a>xls/xlsx文件的读/写/改写</h3><pre><code># read a xls/xlsx file
+import xlrd
+file = &apos;C:/Users/chenxy/Desktop/tkinter_dict/test_data.xlsx&apos;
+raw_data = xlrd.open_workbook(file)
+table = raw_data.sheets()[0]
+col0 = table.col_values(0)
+row0 = table.row_values(0)
+</code></pre><p>xlrd的文件读取，对于xls，xlsx都没问题。</p>
+<pre><code>#write a new xls file 
+import xlwt
+file = xlwt.Workbook()
+table = file.add_sheet(&apos;sheet1&apos;, cell_overwrite_ok=True)
+table.write(0, 0, &apos;[0,0]&apos;)
+for i in range(0, 10):
+    table.write(0 , i, &apos;[0,&apos;+str(i)+&apos;]&apos;)
+file.save(&apos;C:/Users/chenxy/Desktop/tkinter_dict/new_data.xls&apos;)
+</code></pre><p>cell_overwrite_ok=True可以使文件在保存之前重写，<br>xlwt只能生成xls文件；生成xlsx文件也不会报错，但无法打开，显示已损坏。可能跟python版本有关，换成低版本也许能表现正常。</p>
+<pre><code>#rewrite a xls file existed
+import xlutils
+file = &apos;C:/Users/chenxy/Desktop/tkinter_dict/test_data.xlsx&apos;
+raw_data = xlrd.open_workbook(file)
+file_copy = xlutils.copy.copy(raw_data)
+table = file_copy.get_sheet(0)
+for i in range(0, 10):
+    table.write(0 , i, &apos;[0,&apos;+str(i)+&apos;]&apos;)
+file_copy.save(&apos;C:/Users/chenxy/Desktop/tkinter_dict/test_data.xlsx&apos;)
+</code></pre><p>使用xlutils的copy方法，之后的部分按照xlrd的相似方式写即可。<br>注：xlutils是基于xlrd和xlwt的。</p>
+<h3 id="python代码打包成exe文件"><a href="#python代码打包成exe文件" class="headerlink" title="python代码打包成exe文件"></a>python代码打包成exe文件</h3><p> python有很多用于打包的模块，但对于python3.5，目前能正常使用的貌似只有pyinstaller（并且对于32位，64位都支持）。在cmd中，进入到python文件所在目录，然后执行如下代码：</p>
+<pre><code>pyinstaller -F -w 文件名.py
+</code></pre><p>-F 表示生成单个可执行文件，即将所有依赖文件都集中到一个exe文件中<br>-w 表示去掉控制台窗口，这在GUI界面时非常有用。不过如果是命令行程序的话那要把这个选项删除</p>
+]]></content>
+    </entry>
+    
+  
+  
+    
+    <entry>
+      <title><![CDATA[about]]></title>
+      <url>http://yoursite.com/about/index.html</url>
+      <content type="html"></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[categories]]></title>
+      <url>http://yoursite.com/categories/index.html</url>
+      <content type="html"></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[tags]]></title>
+      <url>http://yoursite.com/tags/index.html</url>
+      <content type="html"></content>
+    </entry>
+    
+  
+</search>
