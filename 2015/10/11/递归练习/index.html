@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="python,算法," />
 
 
 
@@ -84,15 +84,19 @@
 
 
 
-<meta name="description" content="当你的才华还撑不起你的野心的时候，你就应该静下心来学习">
-<meta property="og:type" content="website">
-<meta property="og:title" content="New World">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="对于递归这几道题目难度都不大，甚至有些不用递归会有更简洁的方式实现。但强制自己用递归实现出来，对于学习这种解决问题的方法还是有帮助的。对于判断出能用递归解决的问题，可以先把“归”确定下来，然后再想如何“递”，并把“递”的各种情况考虑清楚、完善，整道题目应该就解决得差不多了。
+题目cube_vals_rec()question:wrire a function cube_vals_rec(value">
+<meta property="og:type" content="article">
+<meta property="og:title" content="递归练习">
+<meta property="og:url" content="http://yoursite.com/2015/10/11/递归练习/index.html">
 <meta property="og:site_name" content="New World">
-<meta property="og:description" content="当你的才华还撑不起你的野心的时候，你就应该静下心来学习">
+<meta property="og:description" content="对于递归这几道题目难度都不大，甚至有些不用递归会有更简洁的方式实现。但强制自己用递归实现出来，对于学习这种解决问题的方法还是有帮助的。对于判断出能用递归解决的问题，可以先把“归”确定下来，然后再想如何“递”，并把“递”的各种情况考虑清楚、完善，整道题目应该就解决得差不多了。
+题目cube_vals_rec()question:wrire a function cube_vals_rec(value">
+<meta property="og:updated_time" content="2016-10-11T11:30:22.970Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="New World">
-<meta name="twitter:description" content="当你的才华还撑不起你的野心的时候，你就应该静下心来学习">
+<meta name="twitter:title" content="递归练习">
+<meta name="twitter:description" content="对于递归这几道题目难度都不大，甚至有些不用递归会有更简洁的方式实现。但强制自己用递归实现出来，对于学习这种解决问题的方法还是有帮助的。对于判断出能用递归解决的问题，可以先把“归”确定下来，然后再想如何“递”，并把“递”的各种情况考虑清楚、完善，整道题目应该就解决得差不多了。
+题目cube_vals_rec()question:wrire a function cube_vals_rec(value">
 
 
 
@@ -113,9 +117,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2015/10/11/递归练习/"/>
 
-  <title> New World </title>
+  <title> 递归练习 | New World </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -136,9 +140,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-right 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -248,9 +250,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
   
@@ -270,10 +272,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2015/10/11/递归练习/" itemprop="url">
-                  递归练习
-                </a>
+                递归练习
               
             
           </h1>
@@ -351,199 +350,175 @@
       
 
       
-        
-          
-          对于递归这几道题目难度都不大，甚至有些不用递归会有更简洁的方式实现。但强制自己用递归实现出来，对于学习这种解决问题的方法还是有帮助的。对于判断出能用递归解决的问题，可以先把“归”确定下来，然后再想如何“递”，并把“递”的各种情况考虑清楚、完善，整道题目应该就解决得差不多了。
-题目cube_vals_
-          ...
+        <h2 id="对于递归"><a href="#对于递归" class="headerlink" title="对于递归"></a>对于递归</h2><p>这几道题目难度都不大，甚至有些不用递归会有更简洁的方式实现。但强制自己用递归实现出来，对于学习这种解决问题的方法还是有帮助的。<br>对于判断出能用递归解决的问题，可以先把“归”确定下来，然后再想如何“递”，并把“递”的各种情况考虑清楚、完善，整道题目应该就解决得差不多了。</p>
+<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="cube-vals-rec"><a href="#cube-vals-rec" class="headerlink" title="cube_vals_rec()"></a>cube_vals_rec()</h3><h4 id="question"><a href="#question" class="headerlink" title="question:"></a>question:</h4><p>wrire a function cube_vals_rec(values) that takes as input a list of numbers called values, and that uses recursion to create and return a list containing the cubes of the numbers in values. For example:</p>
+<pre><code>cube_vals_rec([-2,5,4,-3])   # return [-8,125,64,-27]
+</code></pre><h4 id="resolution"><a href="#resolution" class="headerlink" title="resolution:"></a>resolution:</h4><pre><code># python 3.5
+def cube_vals_rec(values):
+if(len(values)==0):
+    return []
+else :
+    return [values[0]**3]+(cube_vals_rec(values[1:]))
 
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/10/11/递归练习/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
+if __name__==&quot;__main__&quot;:
+    print(cube_vals_rec([-2,5,4,-3]))
+</code></pre><h3 id="num-greater"><a href="#num-greater" class="headerlink" title="num_greater()"></a>num_greater()</h3><h4 id="question-1"><a href="#question-1" class="headerlink" title="question:"></a>question:</h4><p>3)write a function called num_greater(threshold, values) that takes as inputs a number threshold and a list of numbers values, and that returns the number of elements of values that are greater than threshold that threshold. For example:</p>
+<pre><code>num_greater(5,[1,7,3,5,10])     # return    2
+num_greater(10,[1,7,3,5,10])    # return    0
+</code></pre><h4 id="resolution-1"><a href="#resolution-1" class="headerlink" title="resolution:"></a>resolution:</h4><pre><code>def num_greater(threshold, values):
+if len(values)==0:
+   return 0
+if values[0]&lt;= (threshold):
+   return num_greater(threshold, values[1:])
+else:
+    return 1+ num_greater(threshold, values[1:])
+
+if __name__==&quot;__main__&quot;:
+    print(num_greater(5,[1,7,3,5,10]))
+    print(num_greater(10,[1,7,3,5,10]))
+</code></pre><h3 id="index-last"><a href="#index-last" class="headerlink" title="index_last()"></a>index_last()</h3><h4 id="question-2"><a href="#question-2" class="headerlink" title="question:"></a>question:</h4><p>4.1)write a function index_last(c, s) that takes as inputs a character c and a string s and that uses recursion to find and return the index of the last occurrence of c(if any) in the string s.If the character c is not found in s,please return -1. For example:</p>
+<pre><code>index_last(&apos;a&apos;,&apos;banana&apos;)        # return    5
+index_last(&apos;x&apos;,&apos;hello&apos;)         # return    -1
+</code></pre><h4 id="resolution-2"><a href="#resolution-2" class="headerlink" title="resolution:"></a>resolution:</h4><pre><code>def index_last(c,s):
+if(len(s)==0):
+    return -1
+elif(c==s[-1]):
+    return len(s)-1
+else:
+    return index_last(c,s[:-1])
+
+if __name__==&quot;__main__&quot;:
+    print( index_last(&apos;a&apos;,&apos;banana&apos;))
+    print( index_last(&apos;x&apos;,&apos;hello&apos;))
+</code></pre><h3 id="lcs"><a href="#lcs" class="headerlink" title="lcs()"></a>lcs()</h3><h4 id="question-3"><a href="#question-3" class="headerlink" title="question:"></a>question:</h4><p>4.3)write a function lcs(s1, s2) that takes two strings s2 and s2 and uses recursion to return the longest common subsequence(LCS) that they share.The LCS is a string whose letters appear in both s1 and s2; these letters must appear in the same order in both s1 and s2,but not necessarily comsecutively. For example:</p>
+<pre><code>lcs(&apos;human&apos;, &apos;chimp&apos;)           # return    &apos;hm&apos;
+lcs(&apos;abcdefg&apos;,&apos;efghabcd&apos;)       # return    &apos;abcd&apos; (&apos;efgh&apos; would also be fine)
+</code></pre><h4 id="resolution-3"><a href="#resolution-3" class="headerlink" title="resolution:"></a>resolution:</h4><pre><code>def lcs(s1,s2):
+if(len(s1)==0 or len(s2)==0):
+    return &apos;&apos;
+elif(s1[0]==s2[0]):
+    return s1[0]+lcs(s1[1:],s2[1:])
+else:
+    result1 = lcs(s1[1:],s2)
+    result2 = lcs(s1,s2[1:])
+    if (len(result1)&gt;len(result2)):
+        return result1
+    else:
+        return result2
+
+if __name__==&quot;__main__&quot;:
+    print( lcs(&apos;human&apos;, &apos;chimp&apos;))
+    print( lcs(&apos;gattaca&apos;,&apos;tacgaata&apos;))
+    print( lcs(&apos;&apos;,&apos;whew&apos;))
+    print( lcs(&apos;abcdefg&apos;,&apos;efghabcd&apos;))
+</code></pre>
       
     </div>
 
     <div>
       
+        
+
+      
     </div>
 
     <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div></div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/qrcode/wechatpay.png" alt="CXY WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/qrcode/alipay.png" alt="CXY Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
       
     </div>
 	
 	<div>
 	  
+		
+<div style="text-align:center;color: #ccc;font-size:14px;">------ 本文结束 ------</div>
+
+      
 	</div>
 	
     <footer class="post-footer">
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/10/07/Tkinter实践/" itemprop="url">
-                  Tkinter实践
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-10-07T00:00:00+08:00" content="2015-10-07">
-              2015-10-07
-            </time>
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/学习/" itemprop="url" rel="index">
-                    <span itemprop="name">学习</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/学习/python/" itemprop="url" rel="index">
-                    <span itemprop="name">python</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
+            <a href="/tags/python/" rel="tag">#python</a>
           
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/10/07/Tkinter实践/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/07/Tkinter实践/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
+            <a href="/tags/算法/" rel="tag">#算法</a>
           
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-          环境说明
-电脑系统：windows10 64bit
-python版本： 3.5.2 64bit
-IDE： PyCharm Community Edition 2016.2.2
-
-功能实现
-单词自考自查工具
-读取xlsx格式的词典，可进行中译英，英译中的顺序或随机自查，对结果可保存为txt格式的文本
-
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/10/07/Tkinter实践/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/10/07/Tkinter实践/" rel="next" title="Tkinter实践">
+                <i class="fa fa-chevron-left"></i> Tkinter实践
+              </a>
+            
           </div>
-        
-      
-    </div>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-	
-	<div>
-	  
-	</div>
-	
-    <footer class="post-footer">
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
       
 
       
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
 
 
           </div>
@@ -551,6 +526,14 @@ IDE： PyCharm Community Edition 2016.2.2
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2015/10/11/递归练习/"
+           data-title="递归练习" data-url="http://yoursite.com/2015/10/11/递归练习/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -570,8 +553,17 @@ IDE： PyCharm Community Edition 2016.2.2
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -632,6 +624,17 @@ IDE： PyCharm Community Edition 2016.2.2
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#对于递归"><span class="nav-number">1.</span> <span class="nav-text">对于递归</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">2.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#cube-vals-rec"><span class="nav-number">2.1.</span> <span class="nav-text">cube_vals_rec()</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#question"><span class="nav-number">2.1.1.</span> <span class="nav-text">question:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#resolution"><span class="nav-number">2.1.2.</span> <span class="nav-text">resolution:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#num-greater"><span class="nav-number">2.2.</span> <span class="nav-text">num_greater()</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#question-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">question:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#resolution-1"><span class="nav-number">2.2.2.</span> <span class="nav-text">resolution:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#index-last"><span class="nav-number">2.3.</span> <span class="nav-text">index_last()</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#question-2"><span class="nav-number">2.3.1.</span> <span class="nav-text">question:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#resolution-2"><span class="nav-number">2.3.2.</span> <span class="nav-text">resolution:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lcs"><span class="nav-number">2.4.</span> <span class="nav-text">lcs()</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#question-3"><span class="nav-number">2.4.1.</span> <span class="nav-text">question:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#resolution-3"><span class="nav-number">2.4.2.</span> <span class="nav-text">resolution:</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -728,6 +731,10 @@ IDE： PyCharm Community Edition 2016.2.2
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 

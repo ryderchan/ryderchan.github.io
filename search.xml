@@ -4,6 +4,73 @@
   
     
     <entry>
+      <title><![CDATA[递归练习]]></title>
+      <url>http://yoursite.com/2015/10/11/%E9%80%92%E5%BD%92%E7%BB%83%E4%B9%A0/</url>
+      <content type="html"><![CDATA[<h2 id="对于递归"><a href="#对于递归" class="headerlink" title="对于递归"></a>对于递归</h2><p>这几道题目难度都不大，甚至有些不用递归会有更简洁的方式实现。但强制自己用递归实现出来，对于学习这种解决问题的方法还是有帮助的。<br>对于判断出能用递归解决的问题，可以先把“归”确定下来，然后再想如何“递”，并把“递”的各种情况考虑清楚、完善，整道题目应该就解决得差不多了。</p>
+<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="cube-vals-rec"><a href="#cube-vals-rec" class="headerlink" title="cube_vals_rec()"></a>cube_vals_rec()</h3><h4 id="question"><a href="#question" class="headerlink" title="question:"></a>question:</h4><p>wrire a function cube_vals_rec(values) that takes as input a list of numbers called values, and that uses recursion to create and return a list containing the cubes of the numbers in values. For example:</p>
+<pre><code>cube_vals_rec([-2,5,4,-3])   # return [-8,125,64,-27]
+</code></pre><h4 id="resolution"><a href="#resolution" class="headerlink" title="resolution:"></a>resolution:</h4><pre><code># python 3.5
+def cube_vals_rec(values):
+if(len(values)==0):
+    return []
+else :
+    return [values[0]**3]+(cube_vals_rec(values[1:]))
+
+if __name__==&quot;__main__&quot;:
+    print(cube_vals_rec([-2,5,4,-3]))
+</code></pre><h3 id="num-greater"><a href="#num-greater" class="headerlink" title="num_greater()"></a>num_greater()</h3><h4 id="question-1"><a href="#question-1" class="headerlink" title="question:"></a>question:</h4><p>3)write a function called num_greater(threshold, values) that takes as inputs a number threshold and a list of numbers values, and that returns the number of elements of values that are greater than threshold that threshold. For example:</p>
+<pre><code>num_greater(5,[1,7,3,5,10])     # return    2
+num_greater(10,[1,7,3,5,10])    # return    0
+</code></pre><h4 id="resolution-1"><a href="#resolution-1" class="headerlink" title="resolution:"></a>resolution:</h4><pre><code>def num_greater(threshold, values):
+if len(values)==0:
+   return 0
+if values[0]&lt;= (threshold):
+   return num_greater(threshold, values[1:])
+else:
+    return 1+ num_greater(threshold, values[1:])
+
+if __name__==&quot;__main__&quot;:
+    print(num_greater(5,[1,7,3,5,10]))
+    print(num_greater(10,[1,7,3,5,10]))
+</code></pre><h3 id="index-last"><a href="#index-last" class="headerlink" title="index_last()"></a>index_last()</h3><h4 id="question-2"><a href="#question-2" class="headerlink" title="question:"></a>question:</h4><p>4.1)write a function index_last(c, s) that takes as inputs a character c and a string s and that uses recursion to find and return the index of the last occurrence of c(if any) in the string s.If the character c is not found in s,please return -1. For example:</p>
+<pre><code>index_last(&apos;a&apos;,&apos;banana&apos;)        # return    5
+index_last(&apos;x&apos;,&apos;hello&apos;)         # return    -1
+</code></pre><h4 id="resolution-2"><a href="#resolution-2" class="headerlink" title="resolution:"></a>resolution:</h4><pre><code>def index_last(c,s):
+if(len(s)==0):
+    return -1
+elif(c==s[-1]):
+    return len(s)-1
+else:
+    return index_last(c,s[:-1])
+
+if __name__==&quot;__main__&quot;:
+    print( index_last(&apos;a&apos;,&apos;banana&apos;))
+    print( index_last(&apos;x&apos;,&apos;hello&apos;))
+</code></pre><h3 id="lcs"><a href="#lcs" class="headerlink" title="lcs()"></a>lcs()</h3><h4 id="question-3"><a href="#question-3" class="headerlink" title="question:"></a>question:</h4><p>4.3)write a function lcs(s1, s2) that takes two strings s2 and s2 and uses recursion to return the longest common subsequence(LCS) that they share.The LCS is a string whose letters appear in both s1 and s2; these letters must appear in the same order in both s1 and s2,but not necessarily comsecutively. For example:</p>
+<pre><code>lcs(&apos;human&apos;, &apos;chimp&apos;)           # return    &apos;hm&apos;
+lcs(&apos;abcdefg&apos;,&apos;efghabcd&apos;)       # return    &apos;abcd&apos; (&apos;efgh&apos; would also be fine)
+</code></pre><h4 id="resolution-3"><a href="#resolution-3" class="headerlink" title="resolution:"></a>resolution:</h4><pre><code>def lcs(s1,s2):
+if(len(s1)==0 or len(s2)==0):
+    return &apos;&apos;
+elif(s1[0]==s2[0]):
+    return s1[0]+lcs(s1[1:],s2[1:])
+else:
+    result1 = lcs(s1[1:],s2)
+    result2 = lcs(s1,s2[1:])
+    if (len(result1)&gt;len(result2)):
+        return result1
+    else:
+        return result2
+
+if __name__==&quot;__main__&quot;:
+    print( lcs(&apos;human&apos;, &apos;chimp&apos;))
+    print( lcs(&apos;gattaca&apos;,&apos;tacgaata&apos;))
+    print( lcs(&apos;&apos;,&apos;whew&apos;))
+    print( lcs(&apos;abcdefg&apos;,&apos;efghabcd&apos;))
+</code></pre>]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Tkinter实践]]></title>
       <url>http://yoursite.com/2015/10/07/Tkinter%E5%AE%9E%E8%B7%B5/</url>
       <content type="html"><![CDATA[<h2 id="环境说明"><a href="#环境说明" class="headerlink" title="环境说明"></a>环境说明</h2><ul>
@@ -90,6 +157,12 @@ file_copy.save(&apos;C:/Users/chenxy/Desktop/tkinter_dict/test_data.xlsx&apos;)
   
     
     <entry>
+      <title><![CDATA[tags]]></title>
+      <url>http://yoursite.com/tags/index.html</url>
+      <content type="html"></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[about]]></title>
       <url>http://yoursite.com/about/index.html</url>
       <content type="html"></content>
@@ -98,12 +171,6 @@ file_copy.save(&apos;C:/Users/chenxy/Desktop/tkinter_dict/test_data.xlsx&apos;)
     <entry>
       <title><![CDATA[categories]]></title>
       <url>http://yoursite.com/categories/index.html</url>
-      <content type="html"></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[tags]]></title>
-      <url>http://yoursite.com/tags/index.html</url>
       <content type="html"></content>
     </entry>
     
