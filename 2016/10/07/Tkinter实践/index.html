@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next mist use-motion">
+<html class="theme-next pisces use-motion">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -84,60 +84,26 @@
 
 
 
-<meta name="description" content="环境说明
-电脑系统：windows10 64bit
-python版本： 3.5.2 64bit
-IDE： PyCharm Community Edition 2016.2.2
-
-功能实现
-单词自考自查工具
-读取xlsx格式的词典，可进行中译英，英译中的顺序或随机自查，对结果可保存为txt格式的文本
-自动记录中-&amp;gt;英错误次数，以日志形式保存
-具体见程序的版本信息部分
-
-依赖库
-tkinter">
+<meta name="description" content="Tkinter模块是Python的标准Tk GUI工具包的接口,可以在大多数的Unix平台下使用,同样可以应用在Windows和Macintosh系统里，是一款简单易用的跨平台python库。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Tkinter实践">
-<meta property="og:url" content="http://yoursite.com/2015/10/07/Tkinter实践/index.html">
-<meta property="og:site_name" content="New World">
-<meta property="og:description" content="环境说明
-电脑系统：windows10 64bit
-python版本： 3.5.2 64bit
-IDE： PyCharm Community Edition 2016.2.2
-
-功能实现
-单词自考自查工具
-读取xlsx格式的词典，可进行中译英，英译中的顺序或随机自查，对结果可保存为txt格式的文本
-自动记录中-&amp;gt;英错误次数，以日志形式保存
-具体见程序的版本信息部分
-
-依赖库
-tkinter">
-<meta property="og:updated_time" content="2016-10-07T11:37:33.576Z">
+<meta property="og:url" content="http://yoursite.com/2016/10/07/Tkinter实践/index.html">
+<meta property="og:site_name" content="Ryder's Blog">
+<meta property="og:description" content="Tkinter模块是Python的标准Tk GUI工具包的接口,可以在大多数的Unix平台下使用,同样可以应用在Windows和Macintosh系统里，是一款简单易用的跨平台python库。">
+<meta property="og:image" content="http://yoursite.com/img/python_logo.jpg">
+<meta property="og:updated_time" content="2017-01-17T06:33:38.356Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Tkinter实践">
-<meta name="twitter:description" content="环境说明
-电脑系统：windows10 64bit
-python版本： 3.5.2 64bit
-IDE： PyCharm Community Edition 2016.2.2
-
-功能实现
-单词自考自查工具
-读取xlsx格式的词典，可进行中译英，英译中的顺序或随机自查，对结果可保存为txt格式的文本
-自动记录中-&amp;gt;英错误次数，以日志形式保存
-具体见程序的版本信息部分
-
-依赖库
-tkinter">
+<meta name="twitter:description" content="Tkinter模块是Python的标准Tk GUI工具包的接口,可以在大多数的Unix平台下使用,同样可以应用在Windows和Macintosh系统里，是一款简单易用的跨平台python库。">
+<meta name="twitter:image" content="http://yoursite.com/img/python_logo.jpg">
 
 
 
 <script type="text/javascript" id="hexo.configuration">
   var NexT = window.NexT || {};
   var CONFIG = {
-    scheme: 'Mist',
-    sidebar: {"position":"right","display":"post"},
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always"},
     fancybox: true,
     motion: true,
     duoshuo: {
@@ -150,9 +116,9 @@ tkinter">
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2015/10/07/Tkinter实践/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/10/07/Tkinter实践/"/>
 
-  <title> Tkinter实践 | New World </title>
+  <title> Tkinter实践 | Ryder's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -173,7 +139,7 @@ tkinter">
     
   
 
-  <div class="container one-collumn sidebar-position-right page-post-detail ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -183,7 +149,7 @@ tkinter">
   <div class="custom-logo-site-title">
     <a href="/"  class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <span class="site-title">New World</span>
+      <span class="site-title">Ryder's Blog</span>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
@@ -317,8 +283,8 @@ tkinter">
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-10-07T00:00:00+08:00" content="2015-10-07">
-              2015-10-07
+            <time itemprop="dateCreated" datetime="2016-10-07T00:00:00+08:00" content="2016-10-07">
+              2016-10-07
             </time>
           </span>
 
@@ -359,8 +325,8 @@ tkinter">
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/10/07/Tkinter实践/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/07/Tkinter实践/" itemprop="commentsCount"></span>
+                <a href="/2016/10/07/Tkinter实践/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/07/Tkinter实践/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -383,7 +349,8 @@ tkinter">
       
 
       
-        <h2 id="环境说明"><a href="#环境说明" class="headerlink" title="环境说明"></a>环境说明</h2><ul>
+        <p><img src="/img/python_logo.jpg" width="900" height="600" alt="python_logo" align="center"><br>Tkinter模块是Python的标准Tk GUI工具包的接口,可以在大多数的Unix平台下使用,同样可以应用在Windows和Macintosh系统里，是一款简单易用的跨平台python库。<br><a id="more"></a></p>
+<h2 id="环境说明"><a href="#环境说明" class="headerlink" title="环境说明"></a>环境说明</h2><ul>
 <li>电脑系统：windows10 64bit</li>
 <li>python版本： 3.5.2 64bit</li>
 <li>IDE： PyCharm Community Edition 2016.2.2</li>
@@ -482,13 +449,13 @@ file_copy.save(&apos;C:/Users/chenxy/Desktop/tkinter_dict/test_data.xlsx&apos;)
     <div id="QR" style="display: none;">
       
         <div id="wechat" style="display: inline-block">
-          <img id="wechat_qr" src="/qrcode/wechatpay.png" alt="CXY WeChat Pay"/>
+          <img id="wechat_qr" src="/qrcode/wechatpay.png" alt="Ryder Chan WeChat Pay"/>
           <p>微信打赏</p>
         </div>
       
       
         <div id="alipay" style="display: inline-block">
-          <img id="alipay_qr" src="/qrcode/alipay.png" alt="CXY Alipay"/>
+          <img id="alipay_qr" src="/qrcode/alipay.png" alt="Ryder Chan Alipay"/>
           <p>支付宝打赏</p>
         </div>
       
@@ -524,12 +491,16 @@ file_copy.save(&apos;C:/Users/chenxy/Desktop/tkinter_dict/test_data.xlsx&apos;)
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2015/10/11/递归练习/" rel="next" title="递归练习">
+                <i class="fa fa-chevron-left"></i> 递归练习
+              </a>
+            
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/10/11/递归练习/" rel="prev" title="递归练习">
-                递归练习 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/10/28/在新电脑上配置环境更新hexo博客/" rel="prev" title="在新电脑上配置环境，更新hexo博客">
+                在新电脑上配置环境，更新hexo博客 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -579,8 +550,8 @@ file_copy.save(&apos;C:/Users/chenxy/Desktop/tkinter_dict/test_data.xlsx&apos;)
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/10/07/Tkinter实践/"
-           data-title="Tkinter实践" data-url="http://yoursite.com/2015/10/07/Tkinter实践/">
+      <div class="ds-thread" data-thread-key="2016/10/07/Tkinter实践/"
+           data-title="Tkinter实践" data-url="http://yoursite.com/2016/10/07/Tkinter实践/">
       </div>
     
   </div>
@@ -618,14 +589,14 @@ file_copy.save(&apos;C:/Users/chenxy/Desktop/tkinter_dict/test_data.xlsx&apos;)
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
-               alt="CXY" />
-          <p class="site-author-name" itemprop="name">CXY</p>
-          <p class="site-description motion-element" itemprop="description">当你的才华还撑不起你的野心的时候，你就应该静下心来学习</p>
+               alt="Ryder Chan" />
+          <p class="site-author-name" itemprop="name">Ryder Chan</p>
+          <p class="site-description motion-element" itemprop="description"></p>
         </div>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-count">4</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -633,7 +604,7 @@ file_copy.save(&apos;C:/Users/chenxy/Desktop/tkinter_dict/test_data.xlsx&apos;)
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -642,7 +613,7 @@ file_copy.save(&apos;C:/Users/chenxy/Desktop/tkinter_dict/test_data.xlsx&apos;)
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -656,7 +627,7 @@ file_copy.save(&apos;C:/Users/chenxy/Desktop/tkinter_dict/test_data.xlsx&apos;)
           
             
               <span class="links-of-author-item">
-                <a href="https://github.com/chenxiaoyu2016" target="_blank" title="GitHub">
+                <a href="https://github.com/ryderchan" target="_blank" title="GitHub">
                   
                     <i class="fa fa-fw fa-github"></i>
                   
@@ -701,11 +672,11 @@ file_copy.save(&apos;C:/Users/chenxy/Desktop/tkinter_dict/test_data.xlsx&apos;)
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2016</span>
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">CXY</span>
+  <span class="author" itemprop="copyrightHolder">Ryder Chan</span>
 </div>
 
 <div class="powered-by">
@@ -715,7 +686,7 @@ file_copy.save(&apos;C:/Users/chenxy/Desktop/tkinter_dict/test_data.xlsx&apos;)
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
+    NexT.Pisces
   </a>
 </div>
 
@@ -780,6 +751,13 @@ file_copy.save(&apos;C:/Users/chenxy/Desktop/tkinter_dict/test_data.xlsx&apos;)
 
   
   
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
 
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>

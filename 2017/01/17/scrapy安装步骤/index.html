@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="python,scrapy,爬虫," />
 
 
 
@@ -84,12 +84,20 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Ryder's Blog">
-<meta property="og:url" content="http://yoursite.com/archives/2015/10/index.html">
+<meta name="description" content="scrapy是Python中一款相当知名的爬虫框架，spiders，downloader，pipline各部分组件分工明确，上手简单，使用了一段时间，虽然还有很多高级组件还接触过，但已经臣服于它的简洁优雅。本文主要介绍安装步骤（基于64位的windows10系统）。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="scrapy安装步骤">
+<meta property="og:url" content="http://yoursite.com/2017/01/17/scrapy安装步骤/index.html">
 <meta property="og:site_name" content="Ryder's Blog">
+<meta property="og:description" content="scrapy是Python中一款相当知名的爬虫框架，spiders，downloader，pipline各部分组件分工明确，上手简单，使用了一段时间，虽然还有很多高级组件还接触过，但已经臣服于它的简洁优雅。本文主要介绍安装步骤（基于64位的windows10系统）。">
+<meta property="og:image" content="http://yoursite.com/img/scrapy.jpg">
+<meta property="og:image" content="http://yoursite.com/img/lxml.jpg">
+<meta property="og:image" content="http://yoursite.com/img/anaconda.jpg">
+<meta property="og:updated_time" content="2017-01-17T06:55:01.469Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ryder's Blog">
+<meta name="twitter:title" content="scrapy安装步骤">
+<meta name="twitter:description" content="scrapy是Python中一款相当知名的爬虫框架，spiders，downloader，pipline各部分组件分工明确，上手简单，使用了一段时间，虽然还有很多高级组件还接触过，但已经臣服于它的简洁优雅。本文主要介绍安装步骤（基于64位的windows10系统）。">
+<meta name="twitter:image" content="http://yoursite.com/img/scrapy.jpg">
 
 
 
@@ -110,9 +118,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2015/10/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/01/17/scrapy安装步骤/"/>
 
-  <title> 归档 | Ryder's Blog </title>
+  <title> scrapy安装步骤 | Ryder's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -133,7 +141,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  page-archive  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -244,66 +252,255 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
-
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      嗯..! 目前共计 4 篇日志。 继续努力。
-    </span>
-
+  <div id="posts" class="posts-expand">
     
 
-      
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                scrapy安装步骤
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-01-17T00:00:00+08:00" content="2017-01-17">
+              2017-01-17
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/学习/" itemprop="url" rel="index">
+                    <span itemprop="name">学习</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/学习/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/01/17/scrapy安装步骤/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/17/scrapy安装步骤/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
       
       
 
       
+        <p><img src="/img/scrapy.jpg" width="900" height="600" alt="scrapy" align="center"><br>scrapy是Python中一款相当知名的爬虫框架，spiders，downloader，pipline各部分组件分工明确，上手简单，使用了一段时间，虽然还有很多高级组件还接触过，但已经臣服于它的简洁优雅。本文主要介绍安装步骤（基于64位的windows10系统）。<br><a id="more"></a></p>
+<h1 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h1><p> 此方式比较官方，按部就班，用什么装什么。</p>
+<ol>
+<li><p>安装官方python编译器</p>
+<p>python官网：<a href="https://www.python.org/downloads/windows/" target="_blank" rel="external">https://www.python.org/downloads/windows/</a></p>
+<p>装完后可在cmd中敲入python测试</p>
+</li>
+<li><p>安装c++相关库</p>
+<p>exe格式，双击安装，百度搜索：Microsoft Visual C++ Compiler for Python 2.7</p>
+</li>
+<li><p>安装lxml</p>
+<p>在<a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/" target="_blank" rel="external">http://www.lfd.uci.edu/~gohlke/pythonlibs/</a>  中，搜索[lxml]，找到[Lxml, a binding for the libxml2 and libxslt libraries]，在这一行下面找合适的lxml版本文件。如我需要在64位系统，2.7的python环境下装lxml，则选择第二个。<br><img src="/img/lxml.jpg" width="900" height="600" alt="lxml" align="center"><br>下载完后后，进到whl文件所在目录，在cmd中用pip安装：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">pip install lxml-3.6.4-cp27-cp27m-win_amd64.whl</div></pre></td></tr></table></figure>
+</li>
+<li><p>安装win32api</p>
+<p>exe格式，双击安装即可  <a href="https://sourceforge.net/projects/pywin32/files/pywin32/" target="_blank" rel="external">https://sourceforge.net/projects/pywin32/files/pywin32/</a></p>
+</li>
+<li><p>pip安装scrapy</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">pip install scrapy</div></pre></td></tr></table></figure>
+<p>pyOpenSSL,zope.interface等相关组件会自动安装。既然如此，为什么不直接运行pip install scrapy呢？因为有些组件基于c++的库，需要提前安装，而且lxml使用pip安装会失败！</p>
+</li>
+<li><p>安装mysqldb（非必需，不使用mysql，可以不装）</p>
+<p>直接使用pip安装会提示类似如下错误</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">error: command &apos;&quot;C:\Users\qwf\AppData\Local\Programs\Common\Microsoft\Visual C++ for Python\9.0\VC\Bin\cl.exe&quot;&apos; failed with exit status 2</div></pre></td></tr></table></figure>
+<p>可以参考这篇文章的方法解决 <a href="http://www.crifan.com/python_install_module_mysql_mysqldb/" target="_blank" rel="external">http://www.crifan.com/python_install_module_mysql_mysqldb/</a><br>或者概括为一句话，使用这个个人编译版本双击安装即可：<br><a href="http://arquivos.victorjabur.com/python/modules/MySQL-python-1.2.3.win32-py2.7.exe" target="_blank" rel="external">http://arquivos.victorjabur.com/python/modules/MySQL-python-1.2.3.win32-py2.7.exe</a></p>
+</li>
+<li><p>测试<br>cmd中运行如下命令，测试scrapy是否可正常使用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">scrapy bench</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h1 id="方法二（推荐）"><a href="#方法二（推荐）" class="headerlink" title="方法二（推荐）"></a>方法二（推荐）</h1><p>此方法比较省事，一键帮你装好很多相关组件，省去很多麻烦</p>
+<ol>
+<li><p>安装anaconda<br><img src="/img/anaconda.jpg" width="900" height="600" alt="anaconda" align="center"><br>anaconda官网：<a href="https://www.continuum.io/downloads" target="_blank" rel="external">https://www.continuum.io/downloads</a><br>ananconda是一款为科学计算而做的python开发包，集成了很多计算相关的库，矩阵计算，绘图相关，机器学习相关等等（其中也包括了lxml，win32api），所以体积略大。python官方解释器19M左右，而anaconda接近400M。</p>
+</li>
+<li><p>pip安装scrapy  同（一）</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">pip install scrapy</div></pre></td></tr></table></figure>
+</li>
+<li><p>安装mysqldb    同（一）<br><a href="http://arquivos.victorjabur.com/python/modules/MySQL-python-1.2.3.win32-py2.7.exe" target="_blank" rel="external">http://arquivos.victorjabur.com/python/modules/MySQL-python-1.2.3.win32-py2.7.exe</a><br>​</p>
+</li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
         
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2015">2015</h2>
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div></div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/qrcode/wechatpay.png" alt="Ryder Chan WeChat Pay"/>
+          <p>微信打赏</p>
         </div>
       
       
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/qrcode/alipay.png" alt="Ryder Chan Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
 
       
+    </div>
+	
+	<div>
+	  
+		
+<div style="text-align:center;color: #ccc;font-size:14px;">------ 本文结束 ------</div>
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+	</div>
+	
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag">#python</a>
+          
+            <a href="/tags/scrapy/" rel="tag">#scrapy</a>
+          
+            <a href="/tags/爬虫/" rel="tag">#爬虫</a>
+          
+        </div>
+      
 
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2015/10/11/递归练习/" itemprop="url">
-              
-                <span itemprop="name">递归练习</span>
-              
-            </a>
-        
-      </h1>
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/28/在新电脑上配置环境更新hexo博客/" rel="next" title="在新电脑上配置环境，更新hexo博客">
+                <i class="fa fa-chevron-left"></i> 在新电脑上配置环境，更新hexo博客
+              </a>
+            
+          </div>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2015-10-11T00:00:00+08:00"
-              content="2015-10-11" >
-          10-11
-        </time>
-      </div>
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
 
-    </header>
+      
+      
+    </footer>
   </article>
 
 
 
-    
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
 
-  </section>
-
-  
-
+      
+    </div>
+  </div>
 
 
           </div>
@@ -311,6 +508,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/01/17/scrapy安装步骤/"
+           data-title="scrapy安装步骤" data-url="http://yoursite.com/2017/01/17/scrapy安装步骤/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -330,8 +535,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -392,6 +606,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#方法一"><span class="nav-number">1.</span> <span class="nav-text">方法一</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方法二（推荐）"><span class="nav-number">2.</span> <span class="nav-text">方法二（推荐）</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -495,11 +720,9 @@
 
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
 
 
   

@@ -4,76 +4,84 @@
   
     
     <entry>
-      <title><![CDATA[递归练习]]></title>
-      <url>http://yoursite.com/2015/10/11/%E9%80%92%E5%BD%92%E7%BB%83%E4%B9%A0/</url>
-      <content type="html"><![CDATA[<h2 id="对于递归"><a href="#对于递归" class="headerlink" title="对于递归"></a>对于递归</h2><p>这几道题目难度都不大，甚至有些不用递归会有更简洁的方式实现。但强制自己用递归实现出来，对于学习这种解决问题的方法还是有帮助的。<br>对于判断出能用递归解决的问题，可以先把“归”确定下来，然后再想如何“递”，并把“递”的各种情况考虑清楚、完善，整道题目应该就解决得差不多了。</p>
-<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="cube-vals-rec"><a href="#cube-vals-rec" class="headerlink" title="cube_vals_rec()"></a>cube_vals_rec()</h3><h4 id="question"><a href="#question" class="headerlink" title="question:"></a>question:</h4><p>wrire a function cube_vals_rec(values) that takes as input a list of numbers called values, and that uses recursion to create and return a list containing the cubes of the numbers in values. For example:</p>
-<pre><code>cube_vals_rec([-2,5,4,-3])   # return [-8,125,64,-27]
-</code></pre><h4 id="resolution"><a href="#resolution" class="headerlink" title="resolution:"></a>resolution:</h4><pre><code># python 3.5
-def cube_vals_rec(values):
-if(len(values)==0):
-    return []
-else :
-    return [values[0]**3]+(cube_vals_rec(values[1:]))
-
-if __name__==&quot;__main__&quot;:
-    print(cube_vals_rec([-2,5,4,-3]))
-</code></pre><h3 id="num-greater"><a href="#num-greater" class="headerlink" title="num_greater()"></a>num_greater()</h3><h4 id="question-1"><a href="#question-1" class="headerlink" title="question:"></a>question:</h4><p>3)write a function called num_greater(threshold, values) that takes as inputs a number threshold and a list of numbers values, and that returns the number of elements of values that are greater than threshold that threshold. For example:</p>
-<pre><code>num_greater(5,[1,7,3,5,10])     # return    2
-num_greater(10,[1,7,3,5,10])    # return    0
-</code></pre><h4 id="resolution-1"><a href="#resolution-1" class="headerlink" title="resolution:"></a>resolution:</h4><pre><code>def num_greater(threshold, values):
-if len(values)==0:
-   return 0
-if values[0]&lt;= (threshold):
-   return num_greater(threshold, values[1:])
-else:
-    return 1+ num_greater(threshold, values[1:])
-
-if __name__==&quot;__main__&quot;:
-    print(num_greater(5,[1,7,3,5,10]))
-    print(num_greater(10,[1,7,3,5,10]))
-</code></pre><h3 id="index-last"><a href="#index-last" class="headerlink" title="index_last()"></a>index_last()</h3><h4 id="question-2"><a href="#question-2" class="headerlink" title="question:"></a>question:</h4><p>4.1)write a function index_last(c, s) that takes as inputs a character c and a string s and that uses recursion to find and return the index of the last occurrence of c(if any) in the string s.If the character c is not found in s,please return -1. For example:</p>
-<pre><code>index_last(&apos;a&apos;,&apos;banana&apos;)        # return    5
-index_last(&apos;x&apos;,&apos;hello&apos;)         # return    -1
-</code></pre><h4 id="resolution-2"><a href="#resolution-2" class="headerlink" title="resolution:"></a>resolution:</h4><pre><code>def index_last(c,s):
-if(len(s)==0):
-    return -1
-elif(c==s[-1]):
-    return len(s)-1
-else:
-    return index_last(c,s[:-1])
-
-if __name__==&quot;__main__&quot;:
-    print( index_last(&apos;a&apos;,&apos;banana&apos;))
-    print( index_last(&apos;x&apos;,&apos;hello&apos;))
-</code></pre><h3 id="lcs"><a href="#lcs" class="headerlink" title="lcs()"></a>lcs()</h3><h4 id="question-3"><a href="#question-3" class="headerlink" title="question:"></a>question:</h4><p>4.3)write a function lcs(s1, s2) that takes two strings s2 and s2 and uses recursion to return the longest common subsequence(LCS) that they share.The LCS is a string whose letters appear in both s1 and s2; these letters must appear in the same order in both s1 and s2,but not necessarily comsecutively. For example:</p>
-<pre><code>lcs(&apos;human&apos;, &apos;chimp&apos;)           # return    &apos;hm&apos;
-lcs(&apos;abcdefg&apos;,&apos;efghabcd&apos;)       # return    &apos;abcd&apos; (&apos;efgh&apos; would also be fine)
-</code></pre><h4 id="resolution-3"><a href="#resolution-3" class="headerlink" title="resolution:"></a>resolution:</h4><pre><code>def lcs(s1,s2):
-if(len(s1)==0 or len(s2)==0):
-    return &apos;&apos;
-elif(s1[0]==s2[0]):
-    return s1[0]+lcs(s1[1:],s2[1:])
-else:
-    result1 = lcs(s1[1:],s2)
-    result2 = lcs(s1,s2[1:])
-    if (len(result1)&gt;len(result2)):
-        return result1
-    else:
-        return result2
-
-if __name__==&quot;__main__&quot;:
-    print( lcs(&apos;human&apos;, &apos;chimp&apos;))
-    print( lcs(&apos;gattaca&apos;,&apos;tacgaata&apos;))
-    print( lcs(&apos;&apos;,&apos;whew&apos;))
-    print( lcs(&apos;abcdefg&apos;,&apos;efghabcd&apos;))
+      <title><![CDATA[scrapy安装步骤]]></title>
+      <url>http://yoursite.com/2017/01/17/scrapy%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4/</url>
+      <content type="html"><![CDATA[<p><img src="/img/scrapy.jpg" width="900" height="600" alt="scrapy" align="center"><br>scrapy是Python中一款相当知名的爬虫框架，spiders，downloader，pipline各部分组件分工明确，上手简单，使用了一段时间，虽然还有很多高级组件还接触过，但已经臣服于它的简洁优雅。本文主要介绍安装步骤（基于64位的windows10系统）。<br><a id="more"></a></p>
+<h1 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h1><p> 此方式比较官方，按部就班，用什么装什么。</p>
+<ol>
+<li><p>安装官方python编译器</p>
+<p>python官网：<a href="https://www.python.org/downloads/windows/" target="_blank" rel="external">https://www.python.org/downloads/windows/</a></p>
+<p>装完后可在cmd中敲入python测试</p>
+</li>
+<li><p>安装c++相关库</p>
+<p>exe格式，双击安装，百度搜索：Microsoft Visual C++ Compiler for Python 2.7</p>
+</li>
+<li><p>安装lxml</p>
+<p>在<a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/" target="_blank" rel="external">http://www.lfd.uci.edu/~gohlke/pythonlibs/</a>  中，搜索[lxml]，找到[Lxml, a binding for the libxml2 and libxslt libraries]，在这一行下面找合适的lxml版本文件。如我需要在64位系统，2.7的python环境下装lxml，则选择第二个。<br><img src="/img/lxml.jpg" width="900" height="600" alt="lxml" align="center"><br>下载完后后，进到whl文件所在目录，在cmd中用pip安装：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">pip install lxml-3.6.4-cp27-cp27m-win_amd64.whl</div></pre></td></tr></table></figure>
+</li>
+<li><p>安装win32api</p>
+<p>exe格式，双击安装即可  <a href="https://sourceforge.net/projects/pywin32/files/pywin32/" target="_blank" rel="external">https://sourceforge.net/projects/pywin32/files/pywin32/</a></p>
+</li>
+<li><p>pip安装scrapy</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">pip install scrapy</div></pre></td></tr></table></figure>
+<p>pyOpenSSL,zope.interface等相关组件会自动安装。既然如此，为什么不直接运行pip install scrapy呢？因为有些组件基于c++的库，需要提前安装，而且lxml使用pip安装会失败！</p>
+</li>
+<li><p>安装mysqldb（非必需，不使用mysql，可以不装）</p>
+<p>直接使用pip安装会提示类似如下错误</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">error: command &apos;&quot;C:\Users\qwf\AppData\Local\Programs\Common\Microsoft\Visual C++ for Python\9.0\VC\Bin\cl.exe&quot;&apos; failed with exit status 2</div></pre></td></tr></table></figure>
+<p>可以参考这篇文章的方法解决 <a href="http://www.crifan.com/python_install_module_mysql_mysqldb/" target="_blank" rel="external">http://www.crifan.com/python_install_module_mysql_mysqldb/</a><br>或者概括为一句话，使用这个个人编译版本双击安装即可：<br><a href="http://arquivos.victorjabur.com/python/modules/MySQL-python-1.2.3.win32-py2.7.exe" target="_blank" rel="external">http://arquivos.victorjabur.com/python/modules/MySQL-python-1.2.3.win32-py2.7.exe</a></p>
+</li>
+<li><p>测试<br>cmd中运行如下命令，测试scrapy是否可正常使用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">scrapy bench</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h1 id="方法二（推荐）"><a href="#方法二（推荐）" class="headerlink" title="方法二（推荐）"></a>方法二（推荐）</h1><p>此方法比较省事，一键帮你装好很多相关组件，省去很多麻烦</p>
+<ol>
+<li><p>安装anaconda<br><img src="/img/anaconda.jpg" width="900" height="600" alt="anaconda" align="center"><br>anaconda官网：<a href="https://www.continuum.io/downloads" target="_blank" rel="external">https://www.continuum.io/downloads</a><br>ananconda是一款为科学计算而做的python开发包，集成了很多计算相关的库，矩阵计算，绘图相关，机器学习相关等等（其中也包括了lxml，win32api），所以体积略大。python官方解释器19M左右，而anaconda接近400M。</p>
+</li>
+<li><p>pip安装scrapy  同（一）</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">pip install scrapy</div></pre></td></tr></table></figure>
+</li>
+<li><p>安装mysqldb    同（一）<br><a href="http://arquivos.victorjabur.com/python/modules/MySQL-python-1.2.3.win32-py2.7.exe" target="_blank" rel="external">http://arquivos.victorjabur.com/python/modules/MySQL-python-1.2.3.win32-py2.7.exe</a><br>​</p>
+</li>
+</ol>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[在新电脑上配置环境，更新hexo博客]]></title>
+      <url>http://yoursite.com/2016/10/28/%E5%9C%A8%E6%96%B0%E7%94%B5%E8%84%91%E4%B8%8A%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E6%9B%B4%E6%96%B0hexo%E5%8D%9A%E5%AE%A2/</url>
+      <content type="html"><![CDATA[<p><img src="/img/git_hexo.jpg" width="900" height="600" alt="git_hexo" align="center"><br>重装电脑系统，或者换了个新的电脑，如果想要继续更新博客，就得重新配置相关环境，其实主要是配置git。<br><a id="more"></a></p>
+<h2 id="必需文件（换电脑前备份好）"><a href="#必需文件（换电脑前备份好）" class="headerlink" title="必需文件（换电脑前备份好）"></a>必需文件（换电脑前备份好）</h2><ul>
+<li>#####.github.io文件夹<br>此文件夹备份时最好先压缩，以保证文件的完整</li>
+<li><a href="https://nodejs.org/en/" target="_blank" rel="external">node.js</a></li>
+<li><a href="https://git-scm.com/downloads" target="_blank" rel="external">git</a></li>
+</ul>
+<h2 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h2><h3 id="安装node-js-，git"><a href="#安装node-js-，git" class="headerlink" title="安装node.js ，git"></a>安装node.js ，git</h3><p>正常的windows软件安装过程</p>
+<h3 id="安装hexo框架"><a href="#安装hexo框架" class="headerlink" title="安装hexo框架"></a>安装hexo框架</h3><p>（我是在#####.github.io文件夹内进行的安装，但不确定是否为必须）</p>
+<pre><code>npm install -g hexo-cli #使用 npm 安装 Hexo
+</code></pre><h3 id="hexo框架测试"><a href="#hexo框架测试" class="headerlink" title="hexo框架测试"></a>hexo框架测试</h3><pre><code>hexo clean  #清除缓存
+hexo s      #本地测试
+hexo d      #配置上传
+</code></pre><h3 id="配置SSH-Key"><a href="#配置SSH-Key" class="headerlink" title="配置SSH Key"></a>配置SSH Key</h3><h4 id="检查是否已有SSH-Key"><a href="#检查是否已有SSH-Key" class="headerlink" title="检查是否已有SSH Key"></a>检查是否已有SSH Key</h4><pre><code>cd ~/.ssh
+</code></pre><p>若有这个目录，则进行备份</p>
+<h4 id="生成一个新的SSH"><a href="#生成一个新的SSH" class="headerlink" title="生成一个新的SSH"></a>生成一个新的SSH</h4><pre><code>ssh-keygen -t rsa -C &quot;email&quot;
+</code></pre><p>之后直接回车，不用填写东西。之后会让你输入密码。然后就生成一个目录.ssh，里面有两个文件：id_rsa , id_rsa.pub</p>
+<h4 id="把这个SSH放到github上"><a href="#把这个SSH放到github上" class="headerlink" title="把这个SSH放到github上"></a>把这个SSH放到github上</h4><p>登录GitHub，然后进入account-setting，把id_rsa.pub的内容复制进去。</p>
+<p><img src="/img/add_ssh_key.png" width="900" height="600" alt="添加 ssh key" align="center"></p>
+<h4 id="连接测试"><a href="#连接测试" class="headerlink" title="连接测试"></a>连接测试</h4><pre><code>ssh -T git@github.com
+</code></pre><h4 id="git个人信息设置"><a href="#git个人信息设置" class="headerlink" title="git个人信息设置"></a>git个人信息设置</h4><pre><code>git config --global user.name &quot;username&quot;
+git config --global user.email &quot;email&quot;
+</code></pre><h2 id="博客更新"><a href="#博客更新" class="headerlink" title="博客更新"></a>博客更新</h2><pre><code>hexo d      #配置上传
 </code></pre>]]></content>
     </entry>
     
     <entry>
       <title><![CDATA[Tkinter实践]]></title>
-      <url>http://yoursite.com/2015/10/07/Tkinter%E5%AE%9E%E8%B7%B5/</url>
-      <content type="html"><![CDATA[<h2 id="环境说明"><a href="#环境说明" class="headerlink" title="环境说明"></a>环境说明</h2><ul>
+      <url>http://yoursite.com/2016/10/07/Tkinter%E5%AE%9E%E8%B7%B5/</url>
+      <content type="html"><![CDATA[<p><img src="/img/python_logo.jpg" width="900" height="600" alt="python_logo" align="center"><br>Tkinter模块是Python的标准Tk GUI工具包的接口,可以在大多数的Unix平台下使用,同样可以应用在Windows和Macintosh系统里，是一款简单易用的跨平台python库。<br><a id="more"></a></p>
+<h2 id="环境说明"><a href="#环境说明" class="headerlink" title="环境说明"></a>环境说明</h2><ul>
 <li>电脑系统：windows10 64bit</li>
 <li>python版本： 3.5.2 64bit</li>
 <li>IDE： PyCharm Community Edition 2016.2.2</li>
@@ -153,8 +161,81 @@ file_copy.save(&apos;C:/Users/chenxy/Desktop/tkinter_dict/test_data.xlsx&apos;)
 ]]></content>
     </entry>
     
+    <entry>
+      <title><![CDATA[递归练习]]></title>
+      <url>http://yoursite.com/2015/10/11/%E9%80%92%E5%BD%92%E7%BB%83%E4%B9%A0/</url>
+      <content type="html"><![CDATA[<p><img src="/img/recurtion.gif" width="900" height="600" alt="recurtion" align="center"><br>这几道题目难度都不大，甚至有些不用递归会有更简洁的方式实现。但强制自己用递归实现出来，对于学习这种解决问题的方法还是有帮助的。<br>对于判断出能用递归解决的问题，可以先把“归”确定下来，然后再想如何“递”，并把“递”的各种情况考虑清楚、完善，整道题目应该就解决得差不多了。<br><a id="more"></a></p>
+<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="cube-vals-rec"><a href="#cube-vals-rec" class="headerlink" title="cube_vals_rec()"></a>cube_vals_rec()</h3><h4 id="question"><a href="#question" class="headerlink" title="question:"></a>question:</h4><p>wrire a function cube_vals_rec(values) that takes as input a list of numbers called values, and that uses recursion to create and return a list containing the cubes of the numbers in values. For example:</p>
+<pre><code>cube_vals_rec([-2,5,4,-3])   # return [-8,125,64,-27]
+</code></pre><h4 id="resolution"><a href="#resolution" class="headerlink" title="resolution:"></a>resolution:</h4><pre><code># python 3.5
+def cube_vals_rec(values):
+if(len(values)==0):
+    return []
+else :
+    return [values[0]**3]+(cube_vals_rec(values[1:]))
+
+if __name__==&quot;__main__&quot;:
+    print(cube_vals_rec([-2,5,4,-3]))
+</code></pre><h3 id="num-greater"><a href="#num-greater" class="headerlink" title="num_greater()"></a>num_greater()</h3><h4 id="question-1"><a href="#question-1" class="headerlink" title="question:"></a>question:</h4><p>3)write a function called num_greater(threshold, values) that takes as inputs a number threshold and a list of numbers values, and that returns the number of elements of values that are greater than threshold that threshold. For example:</p>
+<pre><code>num_greater(5,[1,7,3,5,10])     # return    2
+num_greater(10,[1,7,3,5,10])    # return    0
+</code></pre><h4 id="resolution-1"><a href="#resolution-1" class="headerlink" title="resolution:"></a>resolution:</h4><pre><code>def num_greater(threshold, values):
+if len(values)==0:
+   return 0
+if values[0]&lt;= (threshold):
+   return num_greater(threshold, values[1:])
+else:
+    return 1+ num_greater(threshold, values[1:])
+
+if __name__==&quot;__main__&quot;:
+    print(num_greater(5,[1,7,3,5,10]))
+    print(num_greater(10,[1,7,3,5,10]))
+</code></pre><h3 id="index-last"><a href="#index-last" class="headerlink" title="index_last()"></a>index_last()</h3><h4 id="question-2"><a href="#question-2" class="headerlink" title="question:"></a>question:</h4><p>4.1)write a function index_last(c, s) that takes as inputs a character c and a string s and that uses recursion to find and return the index of the last occurrence of c(if any) in the string s.If the character c is not found in s,please return -1. For example:</p>
+<pre><code>index_last(&apos;a&apos;,&apos;banana&apos;)        # return    5
+index_last(&apos;x&apos;,&apos;hello&apos;)         # return    -1
+</code></pre><h4 id="resolution-2"><a href="#resolution-2" class="headerlink" title="resolution:"></a>resolution:</h4><pre><code>def index_last(c,s):
+if(len(s)==0):
+    return -1
+elif(c==s[-1]):
+    return len(s)-1
+else:
+    return index_last(c,s[:-1])
+
+if __name__==&quot;__main__&quot;:
+    print( index_last(&apos;a&apos;,&apos;banana&apos;))
+    print( index_last(&apos;x&apos;,&apos;hello&apos;))
+</code></pre><h3 id="lcs"><a href="#lcs" class="headerlink" title="lcs()"></a>lcs()</h3><h4 id="question-3"><a href="#question-3" class="headerlink" title="question:"></a>question:</h4><p>4.3)write a function lcs(s1, s2) that takes two strings s2 and s2 and uses recursion to return the longest common subsequence(LCS) that they share.The LCS is a string whose letters appear in both s1 and s2; these letters must appear in the same order in both s1 and s2,but not necessarily comsecutively. For example:</p>
+<pre><code>lcs(&apos;human&apos;, &apos;chimp&apos;)           # return    &apos;hm&apos;
+lcs(&apos;abcdefg&apos;,&apos;efghabcd&apos;)       # return    &apos;abcd&apos; (&apos;efgh&apos; would also be fine)
+</code></pre><h4 id="resolution-3"><a href="#resolution-3" class="headerlink" title="resolution:"></a>resolution:</h4><pre><code>def lcs(s1,s2):
+if(len(s1)==0 or len(s2)==0):
+    return &apos;&apos;
+elif(s1[0]==s2[0]):
+    return s1[0]+lcs(s1[1:],s2[1:])
+else:
+    result1 = lcs(s1[1:],s2)
+    result2 = lcs(s1,s2[1:])
+    if (len(result1)&gt;len(result2)):
+        return result1
+    else:
+        return result2
+
+if __name__==&quot;__main__&quot;:
+    print( lcs(&apos;human&apos;, &apos;chimp&apos;))
+    print( lcs(&apos;gattaca&apos;,&apos;tacgaata&apos;))
+    print( lcs(&apos;&apos;,&apos;whew&apos;))
+    print( lcs(&apos;abcdefg&apos;,&apos;efghabcd&apos;))
+</code></pre>]]></content>
+    </entry>
+    
   
   
+    
+    <entry>
+      <title><![CDATA[categories]]></title>
+      <url>http://yoursite.com/categories/index.html</url>
+      <content type="html"></content>
+    </entry>
     
     <entry>
       <title><![CDATA[tags]]></title>
@@ -165,12 +246,6 @@ file_copy.save(&apos;C:/Users/chenxy/Desktop/tkinter_dict/test_data.xlsx&apos;)
     <entry>
       <title><![CDATA[about]]></title>
       <url>http://yoursite.com/about/index.html</url>
-      <content type="html"></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[categories]]></title>
-      <url>http://yoursite.com/categories/index.html</url>
       <content type="html"></content>
     </entry>
     

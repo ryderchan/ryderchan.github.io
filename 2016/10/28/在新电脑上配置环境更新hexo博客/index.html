@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="git," />
 
 
 
@@ -84,12 +84,19 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Ryder's Blog">
-<meta property="og:url" content="http://yoursite.com/archives/2015/10/index.html">
+<meta name="description" content="重装电脑系统，或者换了个新的电脑，如果想要继续更新博客，就得重新配置相关环境，其实主要是配置git。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在新电脑上配置环境，更新hexo博客">
+<meta property="og:url" content="http://yoursite.com/2016/10/28/在新电脑上配置环境更新hexo博客/index.html">
 <meta property="og:site_name" content="Ryder's Blog">
+<meta property="og:description" content="重装电脑系统，或者换了个新的电脑，如果想要继续更新博客，就得重新配置相关环境，其实主要是配置git。">
+<meta property="og:image" content="http://yoursite.com/img/git_hexo.jpg">
+<meta property="og:image" content="http://yoursite.com/img/add_ssh_key.png">
+<meta property="og:updated_time" content="2017-01-17T06:33:22.125Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ryder's Blog">
+<meta name="twitter:title" content="在新电脑上配置环境，更新hexo博客">
+<meta name="twitter:description" content="重装电脑系统，或者换了个新的电脑，如果想要继续更新博客，就得重新配置相关环境，其实主要是配置git。">
+<meta name="twitter:image" content="http://yoursite.com/img/git_hexo.jpg">
 
 
 
@@ -110,9 +117,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2015/10/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/10/28/在新电脑上配置环境更新hexo博客/"/>
 
-  <title> 归档 | Ryder's Blog </title>
+  <title> 在新电脑上配置环境，更新hexo博客 | Ryder's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -133,7 +140,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  page-archive  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -244,66 +251,237 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
-
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      嗯..! 目前共计 4 篇日志。 继续努力。
-    </span>
-
+  <div id="posts" class="posts-expand">
     
 
-      
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                在新电脑上配置环境，更新hexo博客
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-28T00:00:00+08:00" content="2016-10-28">
+              2016-10-28
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/学习/" itemprop="url" rel="index">
+                    <span itemprop="name">学习</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/学习/hexo/" itemprop="url" rel="index">
+                    <span itemprop="name">hexo</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/28/在新电脑上配置环境更新hexo博客/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/28/在新电脑上配置环境更新hexo博客/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
       
       
 
       
+        <p><img src="/img/git_hexo.jpg" width="900" height="600" alt="git_hexo" align="center"><br>重装电脑系统，或者换了个新的电脑，如果想要继续更新博客，就得重新配置相关环境，其实主要是配置git。<br><a id="more"></a></p>
+<h2 id="必需文件（换电脑前备份好）"><a href="#必需文件（换电脑前备份好）" class="headerlink" title="必需文件（换电脑前备份好）"></a>必需文件（换电脑前备份好）</h2><ul>
+<li>#####.github.io文件夹<br>此文件夹备份时最好先压缩，以保证文件的完整</li>
+<li><a href="https://nodejs.org/en/" target="_blank" rel="external">node.js</a></li>
+<li><a href="https://git-scm.com/downloads" target="_blank" rel="external">git</a></li>
+</ul>
+<h2 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h2><h3 id="安装node-js-，git"><a href="#安装node-js-，git" class="headerlink" title="安装node.js ，git"></a>安装node.js ，git</h3><p>正常的windows软件安装过程</p>
+<h3 id="安装hexo框架"><a href="#安装hexo框架" class="headerlink" title="安装hexo框架"></a>安装hexo框架</h3><p>（我是在#####.github.io文件夹内进行的安装，但不确定是否为必须）</p>
+<pre><code>npm install -g hexo-cli #使用 npm 安装 Hexo
+</code></pre><h3 id="hexo框架测试"><a href="#hexo框架测试" class="headerlink" title="hexo框架测试"></a>hexo框架测试</h3><pre><code>hexo clean  #清除缓存
+hexo s      #本地测试
+hexo d      #配置上传
+</code></pre><h3 id="配置SSH-Key"><a href="#配置SSH-Key" class="headerlink" title="配置SSH Key"></a>配置SSH Key</h3><h4 id="检查是否已有SSH-Key"><a href="#检查是否已有SSH-Key" class="headerlink" title="检查是否已有SSH Key"></a>检查是否已有SSH Key</h4><pre><code>cd ~/.ssh
+</code></pre><p>若有这个目录，则进行备份</p>
+<h4 id="生成一个新的SSH"><a href="#生成一个新的SSH" class="headerlink" title="生成一个新的SSH"></a>生成一个新的SSH</h4><pre><code>ssh-keygen -t rsa -C &quot;email&quot;
+</code></pre><p>之后直接回车，不用填写东西。之后会让你输入密码。然后就生成一个目录.ssh，里面有两个文件：id_rsa , id_rsa.pub</p>
+<h4 id="把这个SSH放到github上"><a href="#把这个SSH放到github上" class="headerlink" title="把这个SSH放到github上"></a>把这个SSH放到github上</h4><p>登录GitHub，然后进入account-setting，把id_rsa.pub的内容复制进去。</p>
+<p><img src="/img/add_ssh_key.png" width="900" height="600" alt="添加 ssh key" align="center"></p>
+<h4 id="连接测试"><a href="#连接测试" class="headerlink" title="连接测试"></a>连接测试</h4><pre><code>ssh -T git@github.com
+</code></pre><h4 id="git个人信息设置"><a href="#git个人信息设置" class="headerlink" title="git个人信息设置"></a>git个人信息设置</h4><pre><code>git config --global user.name &quot;username&quot;
+git config --global user.email &quot;email&quot;
+</code></pre><h2 id="博客更新"><a href="#博客更新" class="headerlink" title="博客更新"></a>博客更新</h2><pre><code>hexo d      #配置上传
+</code></pre>
+      
+    </div>
+
+    <div>
+      
         
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2015">2015</h2>
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div></div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/qrcode/wechatpay.png" alt="Ryder Chan WeChat Pay"/>
+          <p>微信打赏</p>
         </div>
       
       
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/qrcode/alipay.png" alt="Ryder Chan Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
 
       
+    </div>
+	
+	<div>
+	  
+		
+<div style="text-align:center;color: #ccc;font-size:14px;">------ 本文结束 ------</div>
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+	</div>
+	
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/git/" rel="tag">#git</a>
+          
+        </div>
+      
 
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2015/10/11/递归练习/" itemprop="url">
-              
-                <span itemprop="name">递归练习</span>
-              
-            </a>
-        
-      </h1>
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/07/Tkinter实践/" rel="next" title="Tkinter实践">
+                <i class="fa fa-chevron-left"></i> Tkinter实践
+              </a>
+            
+          </div>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2015-10-11T00:00:00+08:00"
-              content="2015-10-11" >
-          10-11
-        </time>
-      </div>
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/01/17/scrapy安装步骤/" rel="prev" title="scrapy安装步骤">
+                scrapy安装步骤 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
 
-    </header>
+      
+      
+    </footer>
   </article>
 
 
 
-    
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
 
-  </section>
-
-  
-
+      
+    </div>
+  </div>
 
 
           </div>
@@ -311,6 +489,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/10/28/在新电脑上配置环境更新hexo博客/"
+           data-title="在新电脑上配置环境，更新hexo博客" data-url="http://yoursite.com/2016/10/28/在新电脑上配置环境更新hexo博客/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -330,8 +516,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -392,6 +587,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#必需文件（换电脑前备份好）"><span class="nav-number">1.</span> <span class="nav-text">必需文件（换电脑前备份好）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#具体步骤"><span class="nav-number">2.</span> <span class="nav-text">具体步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装node-js-，git"><span class="nav-number">2.1.</span> <span class="nav-text">安装node.js ，git</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装hexo框架"><span class="nav-number">2.2.</span> <span class="nav-text">安装hexo框架</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo框架测试"><span class="nav-number">2.3.</span> <span class="nav-text">hexo框架测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置SSH-Key"><span class="nav-number">2.4.</span> <span class="nav-text">配置SSH Key</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#检查是否已有SSH-Key"><span class="nav-number">2.4.1.</span> <span class="nav-text">检查是否已有SSH Key</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#生成一个新的SSH"><span class="nav-number">2.4.2.</span> <span class="nav-text">生成一个新的SSH</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#把这个SSH放到github上"><span class="nav-number">2.4.3.</span> <span class="nav-text">把这个SSH放到github上</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#连接测试"><span class="nav-number">2.4.4.</span> <span class="nav-text">连接测试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git个人信息设置"><span class="nav-number">2.4.5.</span> <span class="nav-text">git个人信息设置</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#博客更新"><span class="nav-number">3.</span> <span class="nav-text">博客更新</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -495,11 +701,9 @@
 
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
 
 
   
