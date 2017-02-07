@@ -410,14 +410,26 @@ file_copy.save(&apos;C:/Users/chenxy/Desktop/tkinter_dict/test_data.xlsx&apos;)
   
     
     <entry>
-      <title><![CDATA[about]]></title>
-      <url>http://yoursite.com/about/index.html</url>
-      <content type="html"></content>
+      <title></title>
+      <url>http://yoursite.com/baidu_verify_Skzjms5rOj.html</url>
+      <content type="html"><![CDATA[Skzjms5rOj]]></content>
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>http://yoursite.com/google4cb880aa082b939a.html</url>
+      <content type="html"><![CDATA[google-site-verification: google4cb880aa082b939a.html]]></content>
     </entry>
     
     <entry>
       <title><![CDATA[categories]]></title>
       <url>http://yoursite.com/categories/index.html</url>
+      <content type="html"></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[about]]></title>
+      <url>http://yoursite.com/about/index.html</url>
       <content type="html"></content>
     </entry>
     
