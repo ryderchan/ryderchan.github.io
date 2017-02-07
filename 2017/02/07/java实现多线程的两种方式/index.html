@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="git," />
+  <meta name="keywords" content="多线程," />
 
 
 
@@ -84,18 +84,18 @@
 
 
 
-<meta name="description" content="其实一直在断断续续地用git，但一直是用什么查什么，懂的几个命令也只是皮毛。趁着假期有时间，便花了半天时间系统地看了下相关教程、文章，收获很大，做个总结，也方便自己脑子短路时查阅。">
+<meta name="description" content="总结实现多线程的两种方式，并比较两者差别。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="git的基本使用">
-<meta property="og:url" content="http://yoursite.com/2017/01/24/git的基本使用/index.html">
+<meta property="og:title" content="java实现多线程的两种方式">
+<meta property="og:url" content="http://yoursite.com/2017/02/07/java实现多线程的两种方式/index.html">
 <meta property="og:site_name" content="Ryder's Blog">
-<meta property="og:description" content="其实一直在断断续续地用git，但一直是用什么查什么，懂的几个命令也只是皮毛。趁着假期有时间，便花了半天时间系统地看了下相关教程、文章，收获很大，做个总结，也方便自己脑子短路时查阅。">
-<meta property="og:image" content="http://yoursite.com/img/git.png">
-<meta property="og:updated_time" content="2017-01-24T05:51:52.352Z">
+<meta property="og:description" content="总结实现多线程的两种方式，并比较两者差别。">
+<meta property="og:image" content="http://yoursite.com/img/multithread_state.jpg">
+<meta property="og:updated_time" content="2017-02-07T05:13:42.552Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="git的基本使用">
-<meta name="twitter:description" content="其实一直在断断续续地用git，但一直是用什么查什么，懂的几个命令也只是皮毛。趁着假期有时间，便花了半天时间系统地看了下相关教程、文章，收获很大，做个总结，也方便自己脑子短路时查阅。">
-<meta name="twitter:image" content="http://yoursite.com/img/git.png">
+<meta name="twitter:title" content="java实现多线程的两种方式">
+<meta name="twitter:description" content="总结实现多线程的两种方式，并比较两者差别。">
+<meta name="twitter:image" content="http://yoursite.com/img/multithread_state.jpg">
 
 
 
@@ -116,9 +116,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/01/24/git的基本使用/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/02/07/java实现多线程的两种方式/"/>
 
-  <title> git的基本使用 | Ryder's Blog </title>
+  <title> java实现多线程的两种方式 | Ryder's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -271,7 +271,7 @@
             
             
               
-                git的基本使用
+                java实现多线程的两种方式
               
             
           </h1>
@@ -283,8 +283,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-01-24T00:00:00+08:00" content="2017-01-24">
-              2017-01-24
+            <time itemprop="dateCreated" datetime="2017-02-07T00:00:00+08:00" content="2017-02-07">
+              2017-02-07
             </time>
           </span>
 
@@ -309,8 +309,20 @@
 
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/学习/git/" itemprop="url" rel="index">
-                    <span itemprop="name">git</span>
+                  <a href="/categories/学习/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/学习/java/多线程/" itemprop="url" rel="index">
+                    <span itemprop="name">多线程</span>
                   </a>
                 </span>
 
@@ -325,8 +337,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2017/01/24/git的基本使用/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/24/git的基本使用/" itemprop="commentsCount"></span>
+                <a href="/2017/02/07/java实现多线程的两种方式/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/07/java实现多线程的两种方式/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -349,20 +361,19 @@
       
 
       
-        <p><img src="/img/git.png" width="900" height="600" alt="git" align="center"><br>其实一直在断断续续地用git，但一直是用什么查什么，懂的几个命令也只是皮毛。趁着假期有时间，便花了半天时间系统地看了下<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">相关教程、文章</a>，收获很大，做个总结，也方便自己脑子短路时查阅。<br><a id="more"></a></p>
-<h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">git init #初始化一个git仓库，即把当前目录变成Git可以管理的仓库，会生成一个.git隐藏文件夹</div></pre></td></tr></table></figure>
-<h2 id="信息显示"><a href="#信息显示" class="headerlink" title="信息显示"></a>信息显示</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">git status #查看状态</div><div class="line">git log  #查看提交日志</div><div class="line">git log --graph --pretty=oneline --abbrev=commit #以图，一行，缩写的形式显示日志</div></pre></td></tr></table></figure>
-<h2 id="提交修改"><a href="#提交修改" class="headerlink" title="提交修改"></a>提交修改</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">git add test.txt      # 将工作区文件添加到暂存区，就像购物时添加到购物车</div><div class="line">git add .    #添加所有有修改的文件到暂存区</div><div class="line">git commit -m &quot;test&quot; #将暂存区文件提交到版本库，就像购物时将购物车物品一起结账</div></pre></td></tr></table></figure>
-<h2 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">git reset --hard HEAD^^ #回退到当前版本上一个的再上一个版本</div><div class="line">git reset --hard commit_id #通过commit_id回退版本</div><div class="line">git reflog #回退到旧版本后又想到新版本，可用此查看commit_id</div><div class="line">git reset HEAD test.txt #把添加到暂存区的修改撤销</div><div class="line">git checkout -- test.txt #用版本库中的test文件覆盖工作区的test文件</div><div class="line">git rm test.txt #删除本地test文件</div></pre></td></tr></table></figure>
-<h2 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h2><p>前提：添加了<a href="https://ryderchan.github.io/2016/10/28/%E5%9C%A8%E6%96%B0%E7%94%B5%E8%84%91%E4%B8%8A%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E6%9B%B4%E6%96%B0hexo%E5%8D%9A%E5%AE%A2/" target="_blank" rel="external">SSH Key</a>，并初始化当前目录</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">#先有本地库，后有远程库，使用关联命令</div><div class="line">git remote add origin git@github.com:ryderchan/learngit.git #关联远程仓库，取名origin</div><div class="line">git push -u origin master #推送本地master分支到远程，第一次带-u，指定默认主机，以后可用git push的简写</div><div class="line">git push origin master #推送本地master分支到远程</div><div class="line"></div><div class="line">#先有远程库，使用克隆命令</div><div class="line">git clone git@github.com:ryderchan/learngit.git #支持git和https，git速度更快</div><div class="line"></div><div class="line">git push #把远程仓库最新的提交抓取下来</div><div class="line">git branch --set-upstream local-branch origin/branch #建立本地分支与远程分支的关联</div></pre></td></tr></table></figure>
-<h2 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h2><p>常见分支：master（主分支，稳定），dev（开发分支），bug（本地bug修复），feature（新功能分支）</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">git branch #显示所有分支</div><div class="line">git branch dev #创建分支</div><div class="line">git checkout dev #切换分支</div><div class="line">git checkout -b dev #创建并切换到dev分支</div><div class="line">git branch -d dev #删除分支</div><div class="line"></div><div class="line">git merge dev #使用fast-forward模式合并dev到当前分支，若有冲突出现，需要修改添加提交。若无冲突，分支历史信息不可见</div><div class="line">git merge --no-ff -m &quot;no-ff&quot; dev #使用no-ff方式合并,分支历史信息可见</div><div class="line"></div><div class="line">git stash #保存现场</div><div class="line">git stash list #查看保存记录</div><div class="line">git stash apply #恢复最近一次保存记录</div><div class="line">git stash drop #删除最近一次保存记录</div><div class="line">git stash pop #恢复最近一次保存记录，并删除其存储记录</div></pre></td></tr></table></figure>
-<h2 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h2><p>标签用于记录一些关键信息，如版本。其实与commit时附带的信息有些功能上的相似与重复。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">git tag #显示所有标签</div><div class="line">git tag v1.0 commit_id #给当前分支的commit_id添加标签,不指定id则打在最新提交上</div><div class="line">git tag -a v1.0 -m &quot;version 1.0&quot; commit_id #创建带说明的标签</div><div class="line">git show v1.0 #显示标签信息</div><div class="line">git tag -d v1.0 #删除本地标签</div><div class="line">git push origin v1.0 #推送标签到远程仓库</div><div class="line">git push origin :refs/tags/v1.0 #删除远程仓库标签（需要先用-d删除本地标签）</div></pre></td></tr></table></figure>
-<h2 id="忽略特殊文件"><a href="#忽略特殊文件" class="headerlink" title="忽略特殊文件"></a>忽略特殊文件</h2><p>比如java编译生成的文件，比如用于存储账号密码的文件，这类文件往往不需要甚至不能上传。git的.gitignore文件就能达到这个效果，在创建仓库时勾选相关选项，本地修改后，连同其他文件一同推送即可。下面的便是python的.gitignore文件的一部分（自定义忽略xlsx文件）</p>
-<figure class="highlight vala"><table><tr><td class="code"><pre><div class="line"><span class="meta"># data file</span></div><div class="line">*.xlsx</div><div class="line"></div><div class="line"><span class="meta"># Byte-compiled / optimized / DLL files</span></div><div class="line">__pycache__/</div><div class="line">*.py[cod]</div><div class="line">*$py.class</div><div class="line"></div><div class="line"><span class="meta"># C extensions</span></div><div class="line">*.so</div><div class="line"></div><div class="line"><span class="meta"># Distribution / packaging</span></div><div class="line">.Python</div><div class="line">env/</div><div class="line">build/</div><div class="line">develop-eggs/xxxxxxxxxx .gitignore文件</div></pre></td></tr></table></figure>
-
+        <p><img src="/img/multithread_state.jpg" width="900" height="600" alt="multithread_state" align="center"><br>总结实现多线程的两种方式，并比较两者差别。<br><a id="more"></a></p>
+<h1 id="直接集成Thread类"><a href="#直接集成Thread类" class="headerlink" title="直接集成Thread类"></a>直接集成Thread类</h1><p>代码大致框架如下：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> 类名 <span class="keyword">extends</span> <span class="title">Thread</span></span>&#123;</div><div class="line">	属性<span class="number">1</span>；</div><div class="line">	属性<span class="number">2</span>；</div><div class="line">	…</div><div class="line">	方法<span class="number">1</span>;</div><div class="line">	方法<span class="number">2</span>；</div><div class="line">	…</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="comment">// other code…</span></div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>一个小例子，每个线程进行5次打印。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">package</span> thread;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestThread</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;  </div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++) &#123;  </div><div class="line">            <span class="keyword">if</span> (count &gt; <span class="number">0</span>) &#123;  </div><div class="line">                System.out.println(<span class="string">"count= "</span> + count--);  </div><div class="line">            &#125;</div><div class="line">            <span class="keyword">else</span>&#123;</div><div class="line">            	<span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;  </div><div class="line">    &#125;  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;  </div><div class="line">    	TestThread h1 = <span class="keyword">new</span> TestThread();  </div><div class="line">    	TestThread h2 = <span class="keyword">new</span> TestThread();  </div><div class="line">    	TestThread h3 = <span class="keyword">new</span> TestThread();  </div><div class="line">        h1.start();  </div><div class="line">        h2.start();  </div><div class="line">        h3.start();  </div><div class="line">    &#125;  </div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> count = <span class="number">5</span>;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>某次的运行结果：</p>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line"><span class="selector-tag">h2</span>: count= <span class="number">5</span></div><div class="line"><span class="selector-tag">h2</span>: count= <span class="number">4</span></div><div class="line"><span class="selector-tag">h2</span>: count= <span class="number">3</span></div><div class="line"><span class="selector-tag">h2</span>: count= <span class="number">2</span></div><div class="line"><span class="selector-tag">h2</span>: count= <span class="number">1</span></div><div class="line"><span class="selector-tag">h1</span>: count= <span class="number">5</span></div><div class="line"><span class="selector-tag">h1</span>: count= <span class="number">4</span></div><div class="line"><span class="selector-tag">h1</span>: count= <span class="number">3</span></div><div class="line"><span class="selector-tag">h1</span>: count= <span class="number">2</span></div><div class="line"><span class="selector-tag">h1</span>: count= <span class="number">1</span></div><div class="line"><span class="selector-tag">h3</span>: count= <span class="number">5</span></div><div class="line"><span class="selector-tag">h3</span>: count= <span class="number">4</span></div><div class="line"><span class="selector-tag">h3</span>: count= <span class="number">3</span></div><div class="line"><span class="selector-tag">h3</span>: count= <span class="number">2</span></div><div class="line"><span class="selector-tag">h3</span>: count= <span class="number">1</span></div></pre></td></tr></table></figure>
+<h1 id="实现Runnable接口"><a href="#实现Runnable接口" class="headerlink" title="实现Runnable接口"></a>实现Runnable接口</h1><p>代码大致框架如下：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> 类名 <span class="keyword">implements</span> <span class="title">Runnable</span></span>&#123;</div><div class="line">	属性<span class="number">1</span>；</div><div class="line">	属性<span class="number">2</span>；</div><div class="line">	…</div><div class="line">  	方法<span class="number">1</span>;</div><div class="line">	方法<span class="number">2</span>；</div><div class="line">	…</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="comment">// other code…</span></div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>一个小例子，实现资源共享：三个卖票窗口，一起来卖5张票。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">package</span> thread;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line">实现Runnable接口比继承Thread类所具有的优势：</div><div class="line">1）：适合多个【相同】的程序代码的线程去处理【同一】个资源</div><div class="line">2）：可以跨过java中的单继承的限制，接口可以多实现</div><div class="line"> */</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestRunnable</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">int</span> ticket = <span class="number">5</span>; <span class="comment">// 5张票</span></div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">while</span>(ticket&gt;<span class="number">0</span>)&#123;</div><div class="line">			<span class="keyword">synchronized</span> (<span class="keyword">this</span>)&#123;</div><div class="line">				<span class="keyword">if</span>(ticket&gt;<span class="number">0</span>)&#123;</div><div class="line">						String nameString = Thread.currentThread().getName();</div><div class="line">						System.out.println(name + <span class="string">"正在卖票"</span> + <span class="keyword">this</span>.ticket--);</div><div class="line">						<span class="keyword">try</span> &#123;</div><div class="line">							Thread.sleep((<span class="keyword">int</span>) Math.random() * <span class="number">10</span>);</div><div class="line">						&#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</div><div class="line">							e.printStackTrace();</div><div class="line">						&#125; </div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		TestRunnable t = <span class="keyword">new</span> TestRunnable();</div><div class="line">		<span class="keyword">new</span> Thread(t, <span class="string">"1号窗口"</span>).start();</div><div class="line">		<span class="keyword">new</span> Thread(t, <span class="string">"2号窗口"</span>).start();</div><div class="line">		<span class="keyword">new</span> Thread(t, <span class="string">"3号窗口"</span>).start();</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>某次的运行结果：</p>
+<figure class="highlight lsl"><table><tr><td class="code"><pre><div class="line"><span class="number">1</span>号窗口正在卖票<span class="number">5</span></div><div class="line"><span class="number">3</span>号窗口正在卖票<span class="number">4</span></div><div class="line"><span class="number">2</span>号窗口正在卖票<span class="number">3</span></div><div class="line"><span class="number">2</span>号窗口正在卖票<span class="number">2</span></div><div class="line"><span class="number">3</span>号窗口正在卖票<span class="number">1</span></div></pre></td></tr></table></figure>
       
     </div>
 
@@ -413,7 +424,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/git/" rel="tag">#git</a>
+            <a href="/tags/多线程/" rel="tag">#多线程</a>
           
         </div>
       
@@ -422,17 +433,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/01/17/scrapy安装步骤/" rel="next" title="scrapy安装步骤">
-                <i class="fa fa-chevron-left"></i> scrapy安装步骤
+              <a href="/2017/01/31/scrapy爬取北邮人论坛所有帖的基本信息及正文/" rel="next" title="scrapy:爬取北邮人论坛所有帖的基本信息及正文">
+                <i class="fa fa-chevron-left"></i> scrapy:爬取北邮人论坛所有帖的基本信息及正文
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/01/25/python装饰器与语法糖@/" rel="prev" title="python装饰器与语法糖@">
-                python装饰器与语法糖@ <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -481,8 +488,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/01/24/git的基本使用/"
-           data-title="git的基本使用" data-url="http://yoursite.com/2017/01/24/git的基本使用/">
+      <div class="ds-thread" data-thread-key="2017/02/07/java实现多线程的两种方式/"
+           data-title="java实现多线程的两种方式" data-url="http://yoursite.com/2017/02/07/java实现多线程的两种方式/">
       </div>
     
   </div>
@@ -584,7 +591,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化"><span class="nav-number">1.</span> <span class="nav-text">初始化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#信息显示"><span class="nav-number">2.</span> <span class="nav-text">信息显示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#提交修改"><span class="nav-number">3.</span> <span class="nav-text">提交修改</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#版本回退"><span class="nav-number">4.</span> <span class="nav-text">版本回退</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#远程仓库"><span class="nav-number">5.</span> <span class="nav-text">远程仓库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分支"><span class="nav-number">6.</span> <span class="nav-text">分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标签"><span class="nav-number">7.</span> <span class="nav-text">标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#忽略特殊文件"><span class="nav-number">8.</span> <span class="nav-text">忽略特殊文件</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#直接集成Thread类"><span class="nav-number">1.</span> <span class="nav-text">直接集成Thread类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实现Runnable接口"><span class="nav-number">2.</span> <span class="nav-text">实现Runnable接口</span></a></li></ol></div>
             
           </div>
         </section>
