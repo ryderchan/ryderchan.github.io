@@ -4,6 +4,34 @@
 
     
   <url>
+    <loc>http://yoursite.com/2017/02/18/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F(%E4%B8%80)/</loc>
+    <lastmod>2017-02-18T15:03:31.048Z</lastmod>
+    <data>
+        <display>
+        <title>单例模式（一）</title>
+        <pubTime>2017-02-17T16:00:00.000Z</pubTime>
+        
+        <tag>多线程</tag>
+         
+        <tag>单例模式</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0/"/>
+          
+             
+              <breadCrumb title="java" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0/java/"/>
+          
+             
+              <breadCrumb title="设计模式" url="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0/java/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2017/02/18/java%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F/</loc>
     <lastmod>2017-02-18T03:35:10.293Z</lastmod>
     <data>

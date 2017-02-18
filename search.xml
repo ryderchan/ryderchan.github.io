@@ -4,6 +4,54 @@
   
     
     <entry>
+      <title><![CDATA[单例模式（一）]]></title>
+      <url>http://yoursite.com/2017/02/18/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F(%E4%B8%80)/</url>
+      <content type="html"><![CDATA[<p><img src="/img/designPattern_sigleten.jpg" width="900" height="600" alt="designPattern_sigleten" align="center"><br>单例模式是最简单最常见的设计模式之一。单例模式的学习教程一般都会提到饿汉式、懒汉式，其中体现了单例模式最要关心的两个问题：对象创建的次数以及何时被创建。 本文会着重总结如上两类实现方式。</p>
+<a id="more"></a>
+<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>单例模式，即该类的对象只允许一个实例存在，提供全局的访问。既然只允许进行一次实例化，那么比较容易想到的实现方式就是将构造函数设为私有，然后类内创建一个对象，并对外提供一个接口用于使用者的获取。但由于多线程以及资源、效率等方面的考虑，衍生出多种实现方式。</p>
+<h1 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h1><p>乍一听可能觉得单例模式局限性太大，用处有限，其实在实际的应用场景有很多：</p>
+<ol>
+<li><p>工具类对象，如应用程序的日志应用，一般都何用单例模式实现，这一般是由于共享的日志文件一直处于打开状态，因为只能有一个实例去操作，否则内容不好追加。如log4j日志系统。又比如windows的任务管理器，回收站。</p>
+</li>
+<li><p>Web应用的配置对象的读取，一般也应用单例模式，这个是由于配置文件是共享的资源。</p>
+</li>
+<li><p>需要频繁创建销毁的对象，或创建对象时耗时过多或耗费资源过多，但又经常用到的对象。数据库连接池的设计一般就是采用单例模式，因为数据库连接是一种数据库资源，数据库软件系统中使用数据库连接池，主要是节省打开或者关闭数据库连接所引起的效率损耗，这种效率上的损耗还是非常昂贵的。</p>
+</li>
+<li><p>多线程的线程池的设计一般也是采用单例模式，这是由于线程池要方便对池中的线程进行控制。</p>
+</li>
+<li><p>spring中的bean默认也是单例的。</p>
+</li>
+<li><p>……（写的有些乱，不过应该还有很多）</p>
+<p>​</p>
+</li>
+</ol>
+<h1 id="实现方式"><a href="#实现方式" class="headerlink" title="实现方式"></a>实现方式</h1><p>所谓的饿汉式、懒汉式，我觉得应该是按照是否实现了延迟加载（lazy load）来区分的。最好的情况是即实现了lazy load，保证了线程安全，同时又能在性能（如运行时间）上有一定的保证。</p>
+<h2 id="1-饿汉式（不保证线程安全）"><a href="#1-饿汉式（不保证线程安全）" class="headerlink" title="1.饿汉式（不保证线程安全）"></a>1.饿汉式（不保证线程安全）</h2><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span></span>&#123;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> Singleton INSTANCE = <span class="keyword">new</span> Singleton();</div><div class="line">	<span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span></span>&#123;&#125;</div><div class="line">  	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">genInstance</span><span class="params">()</span></span>&#123;</div><div class="line">    	<span class="keyword">return</span> INSTANCE;</div><div class="line">  	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这种写法比较简单，就是在类装载的时候就完成实例化。避免了线程同步问题。但如果从始至终从未使用过这个实例，则会造成内存的浪费。</p>
+<h2 id="2-懒汉式"><a href="#2-懒汉式" class="headerlink" title="2.懒汉式"></a>2.懒汉式</h2><h3 id="版本一：基本版本（不保证线程安全）"><a href="#版本一：基本版本（不保证线程安全）" class="headerlink" title="版本一：基本版本（不保证线程安全）"></a>版本一：基本版本（不保证线程安全）</h3><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span></span>&#123;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">static</span> Singleton INSTANCE = <span class="keyword">null</span>;</div><div class="line">	<span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span></span>&#123;&#125;</div><div class="line">  	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">genInstance</span><span class="params">()</span></span>&#123;</div><div class="line">      	<span class="keyword">if</span>(INSTANCE==<span class="keyword">null</span>)&#123;</div><div class="line">          INSTANCE = <span class="keyword">new</span> Singleton();</div><div class="line">      	&#125;</div><div class="line">    	<span class="keyword">return</span> INSTANCE;</div><div class="line">  	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>实现了Lazy Load，即第一次使用时才进行实例化，但仅能在单线程程序中使用，多线程无法保证单例。如果在创建实例对象前，两个线程都通过了if的判断，则会new出两个对象。</p>
+<h3 id="版本二：synchronized同步方法（保证线程安全，不推荐用）"><a href="#版本二：synchronized同步方法（保证线程安全，不推荐用）" class="headerlink" title="版本二：synchronized同步方法（保证线程安全，不推荐用）"></a>版本二：synchronized同步方法（保证线程安全，不推荐用）</h3><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span></span>&#123;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">static</span> Singleton INSTANCE = <span class="keyword">null</span>;</div><div class="line">	<span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span></span>&#123;&#125;</div><div class="line">  	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">synchronized</span> Singleton <span class="title">genInstance</span><span class="params">()</span></span>&#123;</div><div class="line">      	<span class="keyword">if</span>(INSTANCE==<span class="keyword">null</span>)&#123;</div><div class="line">          INSTANCE = <span class="keyword">new</span> Singleton();</div><div class="line">      	&#125;</div><div class="line">    	<span class="keyword">return</span> INSTANCE;</div><div class="line">  	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>实现了Lazy Load，且能保证线程安全。但是这里有个很大（至少耗时比例上很大）的性能问题。除了第一次调用时是执行了Singleton的构造函数之外，以后的每一次调用都是直接返回instance对象。返回对象这个操作耗时是很小的，绝大部分的耗时都用在synchronized修饰符的同步准备上，因此从性能上说很不划算。</p>
+<p>(synchronized不仅实现了实现线程间的互斥，还能保证内存的可见性：<a href="http://www.jianshu.com/p/977d27852826" target="_blank" rel="external">由Synchronized的内存可见性说起</a>)</p>
+<h3 id="版本三：synchronized同步块-不保证线程安全，无法使用，用于比较"><a href="#版本三：synchronized同步块-不保证线程安全，无法使用，用于比较" class="headerlink" title="版本三：synchronized同步块(不保证线程安全，无法使用，用于比较)"></a>版本三：synchronized同步块(不保证线程安全，无法使用，用于比较)</h3><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span></span>&#123;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">volatile</span> Singleton INSTANCE = <span class="keyword">null</span>;</div><div class="line">	<span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span></span>&#123;&#125;</div><div class="line">  	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">genInstance</span><span class="params">()</span></span>&#123;</div><div class="line">      	<span class="keyword">if</span>(INSTANCE==<span class="keyword">null</span>)&#123;</div><div class="line">        	<span class="keyword">synchronized</span>(Singleton.class)&#123;</div><div class="line">            	INSTANCE = <span class="keyword">new</span> Singleton();</div><div class="line">            &#125;</div><div class="line">      	&#125;</div><div class="line">    	<span class="keyword">return</span> INSTANCE;</div><div class="line">  	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>由于上一个版本同步效率太低，所以摒弃同步方法，改为在同步代码块内完成实例化。但是这种同步并不能保证线程安全。与版本一的情形一致，假如一个线程进入了if判断语句块，还未来得及往下执行，另一个线程也通过了这个判断语句，这时便会产生多个实例对象。</p>
+<h3 id="版本四：双检锁（保证线程安全，推荐）"><a href="#版本四：双检锁（保证线程安全，推荐）" class="headerlink" title="版本四：双检锁（保证线程安全，推荐）"></a>版本四：双检锁（保证线程安全，推荐）</h3><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span></span>&#123;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">volatile</span> Singleton INSTANCE = <span class="keyword">null</span>;</div><div class="line">	<span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span></span>&#123;&#125;</div><div class="line">  	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">genInstance</span><span class="params">()</span></span>&#123;</div><div class="line">      	<span class="keyword">if</span>(INSTANCE==<span class="keyword">null</span>)&#123;</div><div class="line">        	<span class="keyword">synchronized</span>(Singleton.class)&#123;</div><div class="line">				<span class="keyword">if</span>(INSTANCE==<span class="keyword">null</span>)&#123;</div><div class="line">                  	 INSTANCE = <span class="keyword">new</span> Singleton();</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">      	&#125;</div><div class="line">    	<span class="keyword">return</span> INSTANCE;</div><div class="line">  	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>双检锁（DCL，double check lock）即双重if检查，同时在使用synchronized代码块的同时，还要将INSTANCE的定义设为volatile类型。</p>
+<p>volatile（java5及以后版本）可以保证多线程下变量的可见性：</p>
+<p>读volatile：每当子线程某一语句要用到volatile变量时，都会从主线程重新拷贝一份，这样就保证子线程的会跟主线程的一致。</p>
+<p>写volatile: 每当子线程某一语句要写volatile变量时，都会在读完后同步到主线程去，这样就保证主线程的变量及时更新。</p>
+<p>对于双检锁的具体论述，可以参考<a href="http://www.cnblogs.com/damonhuang/p/5431866.html" target="_blank" rel="external">单例模式中用volatile和synchronized来满足双重检查锁机制</a></p>
+<h3 id="版本五：内部静态类（保证线程安全，推荐）"><a href="#版本五：内部静态类（保证线程安全，推荐）" class="headerlink" title="版本五：内部静态类（保证线程安全，推荐）"></a>版本五：内部静态类（保证线程安全，推荐）</h3><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span> </span>&#123;&#125;</div><div class="line">    </div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">SingletonInner</span> </span>&#123;</div><div class="line">        <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Singleton INSTANCE = <span class="keyword">new</span> Singleton();</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> SingletonInner.INSTANCE;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>内部静态类SingletonInner并不会随着Singleton类的装载而装载，要在有SingletonInner的引用了以后才会装载到内存的。所以在第一次调用getInstance()之前，SingletonInner是没有被装载进来的，只有在第一次调用了getInstance()之后，里面调用了内部静态类的静态方法，产生了对SingletonInner的引用，内部静态类才会真正装载。从而产生实例对象，这也就达到了Lazy load的目的。</p>
+<p>而类的静态属性只会在第一次加载类的时候初始化，而且在类装载时，别的线程是无法进入的。所以在这里，JVM帮助我们保证了线程的安全性。</p>
+<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><p>至于枚举实现、反射、序列化等相关问题，将在下一部分进行总结。</p>
+<p>参考（看了很多，主要是以下两个）：</p>
+<p><a href="https://tianweili.github.io/2015/03/02/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%85%AB%E7%A7%8D%E5%86%99%E6%B3%95%E6%AF%94%E8%BE%83/" target="_blank" rel="external">单例模式的八种写法比较</a></p>
+<p><a href="http://blog.csdn.net/a_long_/article/details/51141306" target="_blank" rel="external">单例模式的八种写法比较、枚举实现的好处、静态内部类实现单例原理</a></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[java实现多线程的两种方式]]></title>
       <url>http://yoursite.com/2017/02/18/java%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F/</url>
       <content type="html"><![CDATA[<p><img src="/img/multithread_state.jpg" width="900" height="600" alt="multithread_state" align="center"><br>总结实现多线程的三种方式。<br><a id="more"></a></p>
@@ -451,14 +499,14 @@ file_copy.save(&apos;C:/Users/chenxy/Desktop/tkinter_dict/test_data.xlsx&apos;)
     </entry>
     
     <entry>
-      <title><![CDATA[about]]></title>
-      <url>http://yoursite.com/about/index.html</url>
+      <title><![CDATA[categories]]></title>
+      <url>http://yoursite.com/categories/index.html</url>
       <content type="html"></content>
     </entry>
     
     <entry>
-      <title><![CDATA[categories]]></title>
-      <url>http://yoursite.com/categories/index.html</url>
+      <title><![CDATA[about]]></title>
+      <url>http://yoursite.com/about/index.html</url>
       <content type="html"></content>
     </entry>
     
