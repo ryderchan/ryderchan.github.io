@@ -91,7 +91,7 @@
 <meta property="og:site_name" content="Ryder's Blog">
 <meta property="og:description" content="单例模式是最简单最常见的设计模式之一。单例模式的学习教程一般都会提到饿汉式、懒汉式，其中体现了单例模式最要关心的两个问题：对象创建的次数以及何时被创建。 本文会着重总结如上两类实现方式。">
 <meta property="og:image" content="http://yoursite.com/img/designPattern_sigleten.jpg">
-<meta property="og:updated_time" content="2017-02-18T15:03:31.048Z">
+<meta property="og:updated_time" content="2017-02-19T00:40:47.642Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="单例模式（一）">
 <meta name="twitter:description" content="单例模式是最简单最常见的设计模式之一。单例模式的学习教程一般都会提到饿汉式、懒汉式，其中体现了单例模式最要关心的两个问题：对象创建的次数以及何时被创建。 本文会着重总结如上两类实现方式。">
@@ -366,7 +366,7 @@
 <h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>单例模式，即该类的对象只允许一个实例存在，提供全局的访问。既然只允许进行一次实例化，那么比较容易想到的实现方式就是将构造函数设为私有，然后类内创建一个对象，并对外提供一个接口用于使用者的获取。但由于多线程以及资源、效率等方面的考虑，衍生出多种实现方式。</p>
 <h1 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h1><p>乍一听可能觉得单例模式局限性太大，用处有限，其实在实际的应用场景有很多：</p>
 <ol>
-<li><p>工具类对象，如应用程序的日志应用，一般都何用单例模式实现，这一般是由于共享的日志文件一直处于打开状态，因为只能有一个实例去操作，否则内容不好追加。如log4j日志系统。又比如windows的任务管理器，回收站。</p>
+<li><p>工具类对象，如应用程序的日志应用，一般都使用单例模式实现，这一般是由于共享的日志文件一直处于打开状态，因为只能有一个实例去操作，否则内容不好追加。如log4j日志系统。又比如windows的任务管理器，回收站。</p>
 </li>
 <li><p>Web应用的配置对象的读取，一般也应用单例模式，这个是由于配置文件是共享的资源。</p>
 </li>
@@ -401,8 +401,7 @@
 <p>而类的静态属性只会在第一次加载类的时候初始化，而且在类装载时，别的线程是无法进入的。所以在这里，JVM帮助我们保证了线程的安全性。</p>
 <h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><p>至于枚举实现、反射、序列化等相关问题，将在下一部分进行总结。</p>
 <p>参考（看了很多，主要是以下两个）：</p>
-<p><a href="https://tianweili.github.io/2015/03/02/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%85%AB%E7%A7%8D%E5%86%99%E6%B3%95%E6%AF%94%E8%BE%83/" target="_blank" rel="external">单例模式的八种写法比较</a></p>
-<p><a href="http://blog.csdn.net/a_long_/article/details/51141306" target="_blank" rel="external">单例模式的八种写法比较、枚举实现的好处、静态内部类实现单例原理</a></p>
+<p><a href="http://www.cnblogs.com/hellojava/p/3615502.html" target="_blank" rel="external">单例模式的八种写法比较</a><br><a href="http://blog.csdn.net/a_long_/article/details/51141306" target="_blank" rel="external">单例模式的八种写法比较、枚举实现的好处、静态内部类实现单例原理</a></p>
 
       
     </div>
@@ -465,16 +464,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/01/31/scrapy爬取北邮人论坛所有帖的基本信息及正文/" rel="next" title="scrapy:爬取北邮人论坛所有帖的基本信息及正文">
-                <i class="fa fa-chevron-left"></i> scrapy:爬取北邮人论坛所有帖的基本信息及正文
+              <a href="/2017/02/18/java实现多线程的三种方式/" rel="next" title="java实现多线程的三种方式">
+                <i class="fa fa-chevron-left"></i> java实现多线程的三种方式
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/02/18/java实现多线程的三种方式/" rel="prev" title="java实现多线程的三种方式">
-                java实现多线程的三种方式 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/02/19/序列化与反序列化/" rel="prev" title="序列化与反序列化">
+                序列化与反序列化 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -570,7 +569,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-count">12</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -578,7 +577,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -587,7 +586,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
